@@ -10,8 +10,7 @@ une page d'accueil qui représente vos produits et services
 une page d’authentification
 une page de réservation: contient un formulaire interactif selon le schéma en PJ
 
-lien :https://miro.com/welcomeonboard/l7ZuAyql6grQcvnQV8mTdLSJtUMrOIstcKkuk8Qujwhg4VQkX04EAUHlKmQKVm07
-
+<img src="conception.PNG">
 
 # Vous êtes amenés à réaliser:
 <ol>
