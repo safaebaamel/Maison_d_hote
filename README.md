@@ -1,12 +1,10 @@
-# Brief5
-# Maison_d_hote
-# Maison d'hôte/Réservation d'un Hôtel  
+# Brief5/Maison_d_hote/Maison d'hôte/Réservation d'un Hôtel  
 
 Dans le cadre d’amélioration de son service en ligne une maison d'hôte/hôtel vous a contacté afin de renforcer son existence sur le marché. 
 le  site de la maison d'hôte permet à un client de réserver deux type de chambre double ou simple, ainsi que des apparts et des bungalow
 le client est définit par son Nom est son prénom, email,password
 une réservation peut contenir de un à plusieurs chambres,bungalow…
-un bien est défini par son nom, type, vue,..
+un bien est défini par son nom, type, vue,..<br>
 vous êtes amenées à créer un site qui contient:
 une page d'accueil qui représente vos produits et services
 une page d’authentification
@@ -16,12 +14,15 @@ lien :https://miro.com/welcomeonboard/l7ZuAyql6grQcvnQV8mTdLSJtUMrOIstcKkuk8Qujw
 
 
 # Vous êtes amenés à réaliser:
-le diagramme de cas d’utilisation
-le diagramme de Séquence
-le diagramme de classe La réalisation :
-BDD: MySql
-Back-End: PHP
-POO 
+<ol>
+  <li>le diagramme de cas d’utilisation</li>
+  <li>le diagramme de Séquence</li>
+  <li><ol>le diagramme de classe La réalisation :</li>
+    <li>BDD: MySql</li>
+  <li>Back-End: PHP</li>
+  <li>POO</li>
+  </ol>
+</ol>
 créer une classe tarification: qui regroupe l'ensemble des tarifs
 respecter le model MVC
 Front-End: javascript, Bootstrap,SASS,CSS,HTML
