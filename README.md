@@ -19,10 +19,10 @@ lien :https://miro.com/welcomeonboard/l7ZuAyql6grQcvnQV8mTdLSJtUMrOIstcKkuk8Qujw
   <li>le diagramme de Séquence</li>
   <li><ol>le diagramme de classe La réalisation :</li>
     <li>BDD: MySql</li>
-  <li>Back-End: PHP</li>
-  <li>POO</li>
+    <li>Back-End: PHP</li>
+    <li>POO</li>
   </ol>
-</ol>
-créer une classe tarification: qui regroupe l'ensemble des tarifs
-respecter le model MVC
-Front-End: javascript, Bootstrap,SASS,CSS,HTML
+  <li>créer une classe tarification: qui regroupe l'ensemble des tarifs</li>
+  <li>respecter le model MVC</li>
+  <li>Front-End: javascript, Bootstrap,SASS,CSS,HTML</li>
+  </ol>
