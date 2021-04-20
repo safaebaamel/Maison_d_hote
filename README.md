@@ -17,7 +17,7 @@ lien :https://miro.com/welcomeonboard/l7ZuAyql6grQcvnQV8mTdLSJtUMrOIstcKkuk8Qujw
 <ol>
   <li>le diagramme de cas d’utilisation</li>
   <li>le diagramme de Séquence</li>
-  <li><ol>le diagramme de classe La réalisation :</li>
+  <ol><li>le diagramme de classe La réalisation :</li>
     <li>BDD: MySql</li>
     <li>Back-End: PHP</li>
     <li>POO</li>
