@@ -1,4 +1,4 @@
-# Brief5/Maison_d_hote/Maison d'hôte/Réservation d'un Hôtel  
+# Brief5/Maison d'hôte/Réservation d'un Hôtel  
 
 Dans le cadre d’amélioration de son service en ligne une maison d'hôte/hôtel vous a contacté afin de renforcer son existence sur le marché. 
 le  site de la maison d'hôte permet à un client de réserver deux type de chambre double ou simple, ainsi que des apparts et des bungalow
