@@ -28,16 +28,16 @@
                 <div class="mx-auto"></div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-white fs-5">Home</a>
+                        <a href="index.php" class="nav-link text-white fs-5">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-white fs-5">Gallery</a>
+                        <a href="gallery.php" class="nav-link text-white fs-5">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-white fs-5">Login</a>
+                        <a href="signin.php" class="nav-link text-white fs-5">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link btn text-white fs-5">Reservation</a>
+                        <a href="signup.php" class="nav-link btn text-white fs-5">Reservation</a>
                     </li>
                 </ul>
             </div>
@@ -45,7 +45,7 @@
     </nav>
     <!-- Banner Image -->
     <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center"
-        style="background-image: url('Pictures/font.jpg'); background-size: cover;">
+        style="background-image: url('Assets/Img/font.jpg'); background-size: cover;">
         <div class="content text-center">
             <h1 class="text-white intro-r">Resort and Hotel Booking</h1>
             <p class="text-white intro">Vacatya has a lot to offer for anyone who loves nature, sports, history, sunny
@@ -86,7 +86,7 @@
     <section class="containers">
         <h1 class="text-center first">Our Best Offers</h1>
         <div class="row-1">
-            <article class="card fl-left"  style="background-image: url('Pictures/paris.jpg'); background-size: cover;">
+            <article class="card fl-left"  style="background-image: url('Assets/Img/paris.jpg'); background-size: cover;">
                 <section class="date">
                     <time datetime="14th feb">
                         <span>Paris</span><span>14 Feb</span>
@@ -104,7 +104,7 @@
                     <a href="#">Book</a>
                 </section>
             </article>
-            <article class="card fl-left"  style="background-image: url('Pictures/la.jpg'); background-size: cover;">
+            <article class="card fl-left"  style="background-image: url('Assets/Img/la.jpg'); background-size: cover;">
                 <section class="date">
                     <time datetime="14th feb">
                         <span>LA</span><span>24 Feb</span>
@@ -124,7 +124,7 @@
             </article>
         </div>
         <div class="row-1">
-            <article class="card fl-left" style="background-image: url('Pictures/usa.jpg'); background-size: cover;">
+            <article class="card fl-left" style="background-image: url('Assets/Img/usa.jpg'); background-size: cover;">
                 <section class="date">
                     <time datetime="14th feb">
                         <span>USA</span><span>01 Feb</span>
@@ -142,7 +142,7 @@
                     <a href="#">Book</a>
                 </section>
             </article>
-            <article class="card fl-left" style="background-image: url('Pictures/mexico.jpg'); background-size: cover;" >
+            <article class="card fl-left" style="background-image: url('Assets/Img/mexico.jpg'); background-size: cover;" >
                 <section class="date">
                     <time datetime="14th feb">
                         <span>Mexico</span><span>14 Feb</span>
@@ -173,7 +173,7 @@
             <div class="customers-container">
                 <!-- single customer -->
                 <div class="customer">
-                    <img src="Pictures/cust3.jpg" alt="customer image">
+                    <img src="Assets/Img/cust3.jpg" alt="customer image">
                     <div class="rating">
                         <span><i class="bi bi-star"></i></span>
                         <span><i class="bi bi-star"></i></span>
@@ -188,7 +188,7 @@
                 <!-- end of single customer -->
                 <!-- single customer -->
                 <div class="customer">
-                    <img src="Pictures/cust2.jpg" alt="customer image">
+                    <img src="Assets/Img/cust2.jpg" alt="customer image">
                     <div class="rating">
                         <span><i class="bi bi-star"></i></span>
                         <span><i class="bi bi-star"></i></span>
@@ -203,7 +203,7 @@
                 <!-- end of single customer -->
                 <!-- single customer -->
                 <div class="customer">
-                    <img src="Pictures/cust1.jpg" alt="customer image">
+                    <img src="Assets/Img/cust1.jpg" alt="customer image">
                     <div class="rating">
                         <span><i class="bi bi-star"></i></span>
                         <span><i class="bi bi-star"></i></span>
@@ -258,20 +258,18 @@
                     <h6 class="text-uppercase font-weight-bold text-white">Useful Links</h6>
                     <hr class="bg-light mb-4 mt-0 d-inline-block mx-auto" style="width: 110px; height: 2px;">
                     <ul class="list-unstyled">
-                        <li class="my-2"><a class="text-white" href="#" style="text-decoration: none;">Home</a></li>
+                        <li class="my-2"><a class="text-white" href="index.php" style="text-decoration: none;">Home</a></li>
                         <li class="my-2"><a class="text-white" href="#" style="text-decoration: none;">About Us</a></li>
-                        <li class="my-2"><a class="text-white" href="#" style="text-decoration: none;">Blog</a></li>
+                        <li class="my-2"><a class="text-white" href="gallery.php" style="text-decoration: none;">Gallery</a></li>
                         <li class="my-2"><a class="text-white" href="#" style="text-decoration: none;">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
         </div>
+        <div class="text-center text-white">
+            Created with <i class="bi bi-heart-fill" style="color:blue;"></i> by Blue 
+        </div>
     </footer>
-
-
-
-
-
 
     <!-- Script -->
     <script src="Assets/Js/bootstrap.bundle.js"></script>

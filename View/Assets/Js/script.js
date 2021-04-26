@@ -8,4 +8,6 @@ window.addEventListener('scroll', function() {
     }
 });
 
-//
+//Gallery
+
+baguetteBox.run('.cards-gallery', {animation: 'slideIn'});
