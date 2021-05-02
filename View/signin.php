@@ -4,7 +4,7 @@
     if (isset($_POST['login'])) {
         $createuser = new userController;
         $createuser->auth();
-    }
+    } 
 
 ?>
 <!doctype html>

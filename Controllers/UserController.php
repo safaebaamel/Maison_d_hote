@@ -32,10 +32,9 @@
                 if($result->Email === $_POST['Email']){
                     $_SESSION['logged'] = true;
                     $_SESSION['Email'] = $result->Email;
-                    Redirect::to('reservation.php');
+                    Redirect::to('Dashboard/ClientDash.php');
                 }else{
                     Session::set('error','Pseudo ou mot de passe est incorrect');
-                    echo "<script>alert('yo');</script>";
                     echo "sdd";
                     Redirect::to('signin.php');
                 }

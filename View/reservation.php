@@ -57,120 +57,110 @@
                 </div>
                 <!----billing address-->
                 <div class="col-sm-8 order-md-1">
-                    <h4 class="mb-3 fs-1">Reservation</h4>
+                    <h4 class="mb-3 text-center fs-1">Reservation</h4>
                     <form class="needs-validation" novalidate="">
                         <!---first name-->
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="Firstname">First name</label>
-                                <input id="fn" class="form-control" type="text" required="">
+                                <label for="Firstname">Date In</label>
+                                <input id="fn" class="form-control" type="date" required="">
 
                             </div>
                             <!----last name---->
                             <div class="col-md-6 mb-3">
-                                <label for="Lasttname">Last name</label>
-                                <input id="ln" class="form-control" type="text" required="">
+                                <label for="Lasttname">Date Out</label>
+                                <input id="ln" class="form-control" type="date" required="">
                             </div>
                         </div>
-                        <!---email-->
-                        <div class="mb-3">
-                            <label for="email">Phone Number
-                                <span class="text-muted">(optional)</span>
-                            </label>
-                            <input id="phone" class="form-control" type="number" placeholder="+212000001">
+                        <div class="col-md-4 mb-3">
+                            <div class="">
+                                <label for="" class="">Choose a Good to reserve!</label>
+                                <select name="reservation" value="" id="reservation" onchange="application()">
+                                    <option value="empty"></option>
+                                    <option value="simplechamber">NormalChamber</option>
+                                    <option value="doublechamber">Double Chamber</option>
+                                    <option value="bungalow">Bungalow</option>
+                                    <option value="appartment">Appartment</option>
+                                </select>
+                                <div id="affichage"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="">
+                                <label for="" class="">Choose a Pension!</label>
+                                <select name="" value="" id="" onchange="">
+                                    <option value="empty"></option>
+                                    <option value="nopension">None</option>
+                                    <option value="allpension">Complete</option>
+                                    <optgroup label="Half">
+                                        <option value="breakfastandlunch">Breakfast/Lunch</option>
+                                        <option value="breakfastanddinner">Breakfast/Dinner</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
 
-                        </div>
-                        <!---country-->
-                        <div class="row">
-                            <div class="col-md-5 mb-3">
-                                <label for="country">Country</label>
-                                <select id="ct " class="custom-select d-block w-100" required="">
-                                    <option value="">choose.....</option>
-                                    <option>Morocco</option>
-                                    <option>India</option>
-                                </select>
+                            <div class="">
+                                <label for="" class="">How many Kids You have ?</label>
+                                <input type="number">
                             </div>
-                            <!---state--->
-                            <div class="col-md-4 mb-3">
-                                <label for="state">State</label>
-                                <select id="st" class="custom-select d-block w-100" required="">
-                                    <option value="">choose.....</option>
-                                    <option></option>
-                                    <option>Algeria</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <form>
-                                    <div class="">
-                                        <label for="" class="">Choose a Good to reserve!</label>
-                                        <select name="reservation" value="reservation" id="reservation" onchange="application()">
-                                            <option value="empty"></option>
-                                            <option value="simplechamber">NormalChamber</option>
-                                            <option value="doublechamber">Double Chamber</option>
-                                            <option value="bungalow">Bungalow</option>
-                                            <option value="appartment">Appartment</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                            <div id="affichage"></div>
+
                         </div>
                         <!---button-->
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block"
-                            type="submit">Submit</button>
-                    </form>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Add Reservation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="page-footer bg-dark w-100">
+        <div class="container text-center text-md-left mt-5">
+            <div class="row bg-dark pt-4 shadow-none">
+                <div class="col-md-3 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold text-white">About Us</h6>
+                    <hr class="bg-light mb-4 mt-0 d-inline-block mx-auto text-white" style="width: 125px; height: 2px">
+                    <p class="mt-2 text-white">Book your room right now and start your amazing adventure full of
+                        discoveries and experiences</p>
+                </div>
+                <div class="col-md-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold text-white">We provide?</h6>
+                    <hr class="bg-light mb-4 mt-0 d-inline-block mx-auto text-white" style="width: 85px; height: 2px">
+                    <ul class="list-unstyled">
+                        <li class="my-2"><a href="#" class="text-white" style="text-decoration: none;">Simple
+                                Rooms</a></li>
+                        <li class="my-2"><a href="#" class="text-white" style="text-decoration: none;">Double
+                                Rooms</a></li>
+                        <li class="my-2"><a href="#" class="text-white" style="text-decoration: none;">Appartment</a>
+                        </li>
+                        <li class="my-2"><a href="#" class="text-white" style="text-decoration: none;">Bungalow</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold text-white">Useful Links</h6>
+                    <hr class="bg-light mb-4 mt-0 d-inline-block mx-auto" style="width: 110px; height: 2px;">
+                    <ul class="list-unstyled">
+                        <li class="my-2"><a class="text-white" href="index.php" style="text-decoration: none;">Home</a>
+                        </li>
+                        <li class="my-2"><a class="text-white" href="#" style="text-decoration: none;">About Us</a>
+                        </li>
+                        <li class="my-2"><a class="text-white" href="gallery.php"
+                                style="text-decoration: none;">Gallery</a></li>
+                        <li class="my-2"><a class="text-white" href="#" style="text-decoration: none;">Contact
+                                Us</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-        <!-- footer -->
-        <footer class="page-footer bg-dark w-100">
-            <div class="container text-center text-md-left mt-5">
-                <div class="row bg-dark pt-4 shadow-none">
-                    <div class="col-md-3 mx-auto mb-4">
-                        <h6 class="text-uppercase font-weight-bold text-white">About Us</h6>
-                        <hr class="bg-light mb-4 mt-0 d-inline-block mx-auto text-white"
-                            style="width: 125px; height: 2px">
-                        <p class="mt-2 text-white">Book your room right now and start your amazing adventure full of
-                            discoveries and experiences</p>
-                    </div>
-                    <div class="col-md-2 mx-auto mb-4">
-                        <h6 class="text-uppercase font-weight-bold text-white">We provide?</h6>
-                        <hr class="bg-light mb-4 mt-0 d-inline-block mx-auto text-white"
-                            style="width: 85px; height: 2px">
-                        <ul class="list-unstyled">
-                            <li class="my-2"><a href="#" class="text-white" style="text-decoration: none;">Simple
-                                    Rooms</a></li>
-                            <li class="my-2"><a href="#" class="text-white" style="text-decoration: none;">Double
-                                    Rooms</a></li>
-                            <li class="my-2"><a href="#" class="text-white"
-                                    style="text-decoration: none;">Appartment</a></li>
-                            <li class="my-2"><a href="#" class="text-white" style="text-decoration: none;">Bungalow</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2 mx-auto mb-4">
-                        <h6 class="text-uppercase font-weight-bold text-white">Useful Links</h6>
-                        <hr class="bg-light mb-4 mt-0 d-inline-block mx-auto" style="width: 110px; height: 2px;">
-                        <ul class="list-unstyled">
-                            <li class="my-2"><a class="text-white" href="index.php"
-                                    style="text-decoration: none;">Home</a></li>
-                            <li class="my-2"><a class="text-white" href="#" style="text-decoration: none;">About Us</a>
-                            </li>
-                            <li class="my-2"><a class="text-white" href="gallery.php"
-                                    style="text-decoration: none;">Gallery</a></li>
-                            <li class="my-2"><a class="text-white" href="#" style="text-decoration: none;">Contact
-                                    Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center text-white">
-                Created with <i class="bi bi-heart-fill" style="color:blue;"></i> by Blue
-            </div>
-        </footer>
-        <script src="Assets/Js/reservation.js"></script>
+        <div class="text-center text-white">
+            Created with <i class="bi bi-heart-fill" style="color:blue;"></i> by Blue
+        </div>
+    </footer>
+    <script src="Assets/Js/reservation.js"></script>
 </body>
 
 </html>
