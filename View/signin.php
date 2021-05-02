@@ -1,9 +1,9 @@
 <?php 
 
     include '../Controllers/UserController.php';
-    if (isset($_POST['signup'])) {
+    if (isset($_POST['login'])) {
         $createuser = new userController;
-        $createuser->register();
+        $createuser->auth();
     }
 
 ?>
@@ -58,14 +58,14 @@
                 <div class="col-lg-7 px-5 pt-5">
                     <h1 class="font-weight-bold py-3">Log In</h1>
                     <h4>Sign In to your account</h4>
-                    <form name="formlogin" method="POST">
+                    <form method="POST">
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <input type="email" name="email"placeholder="Email Address" class="form-control my-3 p-3">
+                                <input type="email" name="Email"placeholder="Email Address" class="form-control my-3 p-3">
                             </div>
                             <div class="form-row">
                                 <div class="col-lg-7">
-                                    <input type="password" name="password" placeholder="********" class="form-control my-3 p-3">
+                                    <input type="password" name="Password" placeholder="********" class="form-control my-3 p-3">
                                 </div>
                             </div>
                             <div class="form-row">

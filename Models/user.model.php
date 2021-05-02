@@ -5,11 +5,11 @@ include '../DataBase/db.php';
 class User{
 
 	static public function login($data){
-		$email = $data['email'];
+		$Email = $data['Email'];
 		try{
-			$query = 'SELECT * FROM user WHERE email=:email';
+			$query = 'SELECT * FROM user WHERE Email=:Email';
 			$stmt = DB::connect()->prepare($query);
-			$stmt->execute(array(":email" => $email));
+			$stmt->execute(array(":Email" => $Email));
 			$user = $stmt->fetch(PDO::FETCH_OBJ);
 			return $user;
 		}catch(PDOException $ex){

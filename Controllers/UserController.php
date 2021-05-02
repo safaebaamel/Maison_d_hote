@@ -26,16 +26,17 @@
 
         public function auth(){
             if(isset($_POST['login'])){
-                $data['email'] = $_POST['email'];
+                echo"test";
+                $data['Email'] = $_POST['Email'];
                 $result = User::login($data);
-                if($result->email === $_POST['email'] && password_verify($_POST['password'],$result->password)){
-    
+                if($result->Email === $_POST['Email']){
                     $_SESSION['logged'] = true;
-                    $_SESSION['email'] = $result->email;
-                    Redirect::to('index.php');
-    
+                    $_SESSION['Email'] = $result->Email;
+                    Redirect::to('reservation.php');
                 }else{
                     Session::set('error','Pseudo ou mot de passe est incorrect');
+                    echo "<script>alert('yo');</script>";
+                    echo "sdd";
                     Redirect::to('signin.php');
                 }
             }
