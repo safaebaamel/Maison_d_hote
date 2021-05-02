@@ -8,7 +8,7 @@ un bien est défini par son nom, type, vue,..<br>
 vous êtes amenées à créer un site qui contient:
 une page d'accueil qui représente vos produits et services
 une page d’authentification
-une page de réservation: contient un formulaire interactif selon le schéma en PJ
+une page de réservation: contient un  formulaire interactif selon le schéma en PJ
 
 <img src="conception.PNG">
 
@@ -23,5 +23,5 @@ une page de réservation: contient un formulaire interactif selon le schéma en 
   </ol>
   <li>créer une classe tarification: qui regroupe l'ensemble des tarifs</li>
   <li>respecter le model MVC</li>
-  <li>Front-End: javascript, Bootstrap,SASS,CSS,HTML</li>
+  <li>Front-End: javascript, Bootstrap, SASS, CSS, HTML</li>
   </ol>
