@@ -16,12 +16,12 @@
 .btn {
   border-radius: 10px;
   border-color: blue;
-  background-color: none;
+  background-color: blue;
   color: white;
 }
 
 .btn:hover {
-  background-color: none;
+  background-color: black;
   border-color: black;
 }
 

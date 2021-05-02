@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="Assets/Style/reservation.css">
     <title>Reservation</title>
 </head>
 
@@ -50,13 +51,13 @@
                     <form class="card p-2">
                         <img src="Assets/Img/font.jpg" alt="" id="resImg">
                         <div class="input-group-append">
-                            <button class="btn btn-primary my-2" type="submit">Submit</button>
+                            <button class="btn btn-primary my-2" type="submit">Reserve</button>
                         </div>
                     </form>
                 </div>
                 <!----billing address-->
                 <div class="col-sm-8 order-md-1">
-                    <h4 class="mb-3">Reservation</h4>
+                    <h4 class="mb-3 fs-1">Reservation</h4>
                     <form class="needs-validation" novalidate="">
                         <!---first name-->
                         <div class="row">
@@ -85,7 +86,7 @@
                                 <label for="country">Country</label>
                                 <select id="ct " class="custom-select d-block w-100" required="">
                                     <option value="">choose.....</option>
-                                    <option>United States</option>
+                                    <option>Morocco</option>
                                     <option>India</option>
                                 </select>
                             </div>
@@ -94,17 +95,17 @@
                                 <label for="state">State</label>
                                 <select id="st" class="custom-select d-block w-100" required="">
                                     <option value="">choose.....</option>
-                                    <option>California</option>
-                                    <option>Telangana/option>
+                                    <option></option>
+                                    <option>Algeria</option>
                                 </select>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <form>
                                     <div class="">
                                         <label for="" class="">Choose a Good to reserve!</label>
-                                        <select name="reservation" value="reservation" id="reservation">
+                                        <select name="reservation" value="reservation" id="reservation" onchange="application()">
                                             <option value="empty"></option>
-                                            <option value="simplechamber">Chamber Normal</option>
+                                            <option value="simplechamber">NormalChamber</option>
                                             <option value="doublechamber">Double Chamber</option>
                                             <option value="bungalow">Bungalow</option>
                                             <option value="appartment">Appartment</option>
@@ -116,12 +117,13 @@
                         </div>
                         <!---button-->
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" onclick="application()"
+                        <button class="btn btn-primary btn-lg btn-block"
                             type="submit">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
+
         <!-- footer -->
         <footer class="page-footer bg-dark w-100">
             <div class="container text-center text-md-left mt-5">

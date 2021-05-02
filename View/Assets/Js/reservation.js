@@ -31,5 +31,4 @@ function application() {
         default:
             data = "";
     }
-    
 }

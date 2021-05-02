@@ -1,3 +1,12 @@
+<?php 
+
+    include '../Controllers/UserController.php';
+    if (isset($_POST['signup'])) {
+        $createuser = new userController;
+        $createuser->register();
+    }
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -33,7 +42,7 @@
                         <a href="signin.php" class="nav-link text-white fs-5">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="reservation.php" class="nav-link btn text-white fs-5 border-bottom">Reservation</a>
+                        <a href="signup.php" class="nav-link btn text-white fs-5 border-bottom">Reservation</a>
                     </li>
                 </ul>
             </div>
@@ -49,25 +58,25 @@
                 <div class="col-lg-7 px-5 pt-5">
                     <h1 class="font-weight-bold py-3">Sign Up</h1>
                     <h4>Welcome Among Us</h4>
-                    <form action="post">
+                    <form method="POST">
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <input type="text" placeholder="First Name" class="form-control my-3 p-3">
+                                <input type="text" placeholder="First Name" name="name" class="form-control my-3 p-3">
                             </div>
                             <div class="col-lg-7">
-                                <input type="text" placeholder="Last Name" class="form-control my-3 p-3">
+                                <input type="text" placeholder="Last Name" name="lname" class="form-control my-3 p-3">
                             </div>
                             <div class="form-row">
                                 <div class="col-lg-7">
-                                    <input type="email" placeholder="example@gmail.com" class="form-control my-3 p-3">
+                                    <input type="email" name="email" placeholder="example@gmail.com" class="form-control my-3 p-3">
                                 </div>
                                 <div class="col-lg-7">
-                                    <input type="password" placeholder="********" class="form-control my-3 p-3">
+                                    <input type="password" name="password" placeholder="********" class="form-control my-3 p-3">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-lg-7">
-                                    <button type="submit" class="btn1 mt-3 mb-4">Sign Up</button>
+                                    <button type="submit" name="signup" class="btn1 mt-3 mb-4">Sign Up</button>
                                 </div>
                             </div>
                             <a href="#">Forgot password?</a>
