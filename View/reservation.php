@@ -75,9 +75,9 @@
                         <div class="col-md-4 mb-3">
                             <div class="">
                                 <label for="" class="">Choose a Good to reserve!</label>
-                                <select name="reservation" value="" id="reservation" onchange="application()">
+                                <select name="reservation" value="" id="good" onchange="Good()">
                                     <option value="empty"></option>
-                                    <option value="simplechamber">NormalChamber</option>
+                                    <option value="simplechamber">Normal Chamber</option>
                                     <option value="doublechamber">Double Chamber</option>
                                     <option value="bungalow">Bungalow</option>
                                     <option value="appartment">Appartment</option>
@@ -88,7 +88,7 @@
                         <div>
                             <div class="">
                                 <label for="" class="">Choose a Pension!</label>
-                                <select name="" value="" id="" onchange="">
+                                <select name="" value="" id="pension" onchange="">
                                     <option value="empty"></option>
                                     <option value="nopension">None</option>
                                     <option value="allpension">Complete</option>
@@ -102,8 +102,9 @@
                         <div>
 
                             <div class="">
-                                <label for="" class="">How many Kids You have ?</label>
-                                <input type="number">
+                                <label for="">How many Kids You have ?</label>
+                                <input type="number" id="nbr_childs" oninput="kids()">
+                                <div id="display"></div>
                             </div>
 
                         </div>

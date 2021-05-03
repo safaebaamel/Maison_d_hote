@@ -1,21 +1,16 @@
 
 // Reservation
 
-function application() {
-    var good = document.getElementById('reservation').value;
+function Good() {
+    var good = document.getElementById('good').value;
     var aff = document.getElementById('affichage');
     var data;
 
-    console.log(good);
     switch (good) {
         case "bungalow":
-            data = "<select><option> Pension </option> <option> Complete </option><option> Half </option><option> None </option></select>";
-            aff.innerHTML = data;
             document.getElementById("resImg").src = "Assets/Img/bungalow.jpg";
             break;
         case "appartment":
-            data = "<select> <option> Pension </option> <option> Complete </option><option> Half </option><option> None </option></select>";
-            aff.innerHTML = data;
             document.getElementById("resImg").src = "Assets/Img/appartment.jpg";
             break;
         case "simplechamber":
@@ -26,9 +21,21 @@ function application() {
         case "doublechamber":
             data = "<select> <option> Option </option> <option> 2 simple Beds </option><option> 1 big bed </option>";
             aff.innerHTML = data;
-            document.getElementById("resImg").url = "Assets/Img/appartment.jpg";
+            document.getElementById("resImg").src = "Assets/Img/double.jpg";
             break;
         default:
             data = "";
+    }
+}
+
+function kids() {
+
+    var kids_num = document.getElementById('nbr_childs').value;
+    for (var i = 0; i < kids_num ; i++) {
+        var input_age = document.createElement("Input");
+        input_age.type = "number";
+        input_age.id = "name" + i;
+        input_age.placeholder = "Age of the child" + Number(i+1);
+        document.getElementById("display").appendChild(input_age);   
     }
 }
