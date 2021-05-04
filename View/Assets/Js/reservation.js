@@ -4,11 +4,13 @@
 function Good() {
     var good = document.getElementById('good').value;
     var aff = document.getElementById('affichage');
+    var description = document.getElementById('description');
     var data;
 
     switch (good) {
         case "bungalow":
             document.getElementById("resImg").src = "Assets/Img/bungalow.jpg";
+            description.innerHTML = "Our Beautiful Bungalows";
             break;
         case "appartment":
             document.getElementById("resImg").src = "Assets/Img/appartment.jpg";
@@ -39,3 +41,4 @@ function kids() {
         document.getElementById("display").appendChild(input_age);   
     }
 }
+

@@ -50,8 +50,8 @@
                 <div class="col-sm-4 order-md-2 mb-4">
                     <form class="card p-2">
                         <img src="Assets/Img/font.jpg" alt="" id="resImg">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary my-2" type="submit">Reserve</button>
+                        <div class="input-group-append text-center m-1">
+                            <label id="description" class="m-2 fs-4">Our beautiful Destinations</label>
                         </div>
                     </form>
                 </div>
@@ -110,7 +110,10 @@
                         </div>
                         <!---button-->
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Add Reservation</button>
+                        <div class="d-flex justify-content-between mx-auto">
+                            <button class="btn btn-success btn-block m-2" id="finalbooking" type="submit">Book Now</button>
+                            <button class="btn btn-primary btn-block m-2" id="addreservation" type="submit">Add Reservation</button>
+                        </div>
                     </div>
                 </form>
             </div>

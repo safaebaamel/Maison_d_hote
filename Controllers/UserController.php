@@ -1,8 +1,8 @@
 <?php
 
     include_once '../Models/user.model.php';
-    include_once '../Classes/Session.php';
-    include_once '../Classes/Redirect.php';
+    include_once '../Classes/Session.class.php';
+    include_once '../Classes/Redirect.class.php';
     class userController {
 
         public function register() {
