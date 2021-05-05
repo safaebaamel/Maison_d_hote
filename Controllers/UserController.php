@@ -9,7 +9,7 @@
             if (isset($_POST['signup'])) {
                 $data = array(
                     'name' => $_POST['name'],
-                    'lname' => $_POST['lname'],
+                    'lname' => $_POST['lname'], 
                     'email' => $_POST['email'],
                     'password' => $_POST['password'],
                 );
@@ -48,6 +48,10 @@
 
     }
 
+    class reservation {
+
+        
+    }
 
 
 

@@ -34,6 +34,10 @@ class User{
 		$stmt = null;
 	}
 
+	class res {
+		
+	}
+
 }
 
  ?>
