@@ -53,33 +53,44 @@ function kids() {
     // console.log(kids_num);
     document.getElementById("button_submit_childs").addEventListener("click", function() {
         for (var j = 0; j < kids_num ; j++) {
-            age = document.getElementById("name"+j).value;
+            age = document.getElementById("name"+j);
             // console.log(age);
-            Age_kids(age);
+            Age_kids(age.value);
             }
     });
 }
 
 function Age_kids($value) {
-    switch($value) {
-        case 0-2:
-            var x = document.createElement("SELECT");
-            x.setAttribute("id", "age");
-            document.body.appendChild(x);
+    console.log($value);
 
-            var z = document.createElement("option");
-            z.setAttribute("value", "age");
-            var t = document.createTextNode("Lit Supplémentaire");
-            z.appendChild(t);
-            document.getElementById("age").appendChild(z);
-            break;
-        case 3-10:
-            break;
-        case 11-18:
-            break;
-        default: 
-            console.log("Failed");
-            break;
+    if ($value <= 2) {
+        var x = document.createElement("Input");
+            x.setAttribute("id", "age");
+            x.setAttribute("type", "checkbox");
+            document.getElementById("display").appendChild(x);
+
+            x.value = "Lit supplémentaire";
     }
+    
+    // switch(v) {
+    //     case (v >= 0 && v <= 2):
+    //         var x = document.createElement("SELECT");
+    //         x.setAttribute("id", "age");
+    //         document.body.appendChild(x);
+
+    //         var z = document.createElement("option");
+    //         z.setAttribute("value", "age");
+    //         var t = document.createTextNode("Lit Supplémentaire");
+    //         z.appendChild(t);
+    //         document.getElementById("age").appendChild(z);
+    //         break;
+    //     case (v >= 2 && v<= 10):
+    //         break;
+    //     case (v >= 14):
+    //         break;
+    //     default: 
+    //         console.log("Failed");
+    //         break;
+    // }
 }
 
