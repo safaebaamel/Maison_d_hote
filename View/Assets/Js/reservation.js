@@ -1,6 +1,8 @@
 
 // Reservation
 
+var total_tarifs = 0;
+
 function Good() {
     var good = document.getElementById('good').value;
     var aff = document.getElementById('affichage');
@@ -16,7 +18,7 @@ function Good() {
             document.getElementById("resImg").src = "Assets/Img/appartment.jpg";
             break;
         case "simplechamber":
-            data = "<select> <option> View </option> <option> Extern View </option><option> Intern View </option>";
+            data = "<select> <option> View </option> <option id={'externview'}> Extern View </option><option id={'externview'}> Intern View </option>";
             aff.innerHTML = data;
             document.getElementById("resImg").src = "Assets/Img/chamber.jpg";
             break;
@@ -31,6 +33,7 @@ function Good() {
 }
 
 function kids() {
+    document.getElementById("display").innerHTML= "";
 
     var kids_num = document.getElementById('nbr_childs').value;
     for (var i = 0; i < kids_num ; i++) {
@@ -38,7 +41,45 @@ function kids() {
         input_age.type = "number";
         input_age.id = "name" + i;
         input_age.placeholder = "Age of the child" + Number(i+1);
-        document.getElementById("display").appendChild(input_age);   
+        document.getElementById("display").appendChild(input_age);
+        // console.log(kids_num);
+        console.log(input_age);
+    }
+    var button_submit_childs = document.createElement("Input");
+    button_submit_childs.type = "button";
+    button_submit_childs.value = "Submit";
+    button_submit_childs.id = "button_submit_childs";
+    document.getElementById("display").appendChild(button_submit_childs);
+    // console.log(kids_num);
+    document.getElementById("button_submit_childs").addEventListener("click", function() {
+        for (var j = 0; j < kids_num ; j++) {
+            age = document.getElementById("name"+j).value;
+            // console.log(age);
+            Age_kids(age);
+            }
+    });
+}
+
+function Age_kids($value) {
+    switch($value) {
+        case 0-2:
+            var x = document.createElement("SELECT");
+            x.setAttribute("id", "age");
+            document.body.appendChild(x);
+
+            var z = document.createElement("option");
+            z.setAttribute("value", "age");
+            var t = document.createTextNode("Lit Supplémentaire");
+            z.appendChild(t);
+            document.getElementById("age").appendChild(z);
+            break;
+        case 3-10:
+            break;
+        case 11-18:
+            break;
+        default: 
+            console.log("Failed");
+            break;
     }
 }
 

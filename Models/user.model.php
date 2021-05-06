@@ -34,9 +34,14 @@ class User{
 		$stmt = null;
 	}
 
-	class res {
-		
-	}
+	// class res {
+
+	// 	public static function reservation($info) {
+	// 		$result = DB::connect()->prepare('INSERT INTO reservation (Date_entree, Date_sortie)');
+
+			
+	// 	}
+	// }
 
 }
 
