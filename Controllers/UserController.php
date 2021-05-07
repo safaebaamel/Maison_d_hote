@@ -20,7 +20,6 @@
                 } else {
                     echo $result;
                 }
-
             }
         }
 

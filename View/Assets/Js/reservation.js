@@ -69,28 +69,8 @@ function Age_kids($value) {
             x.setAttribute("type", "checkbox");
             document.getElementById("display").appendChild(x);
 
-            x.value = "Lit supplémentaire";
+            x.placeholder = "Lit supplémentaire";
     }
     
-    // switch(v) {
-    //     case (v >= 0 && v <= 2):
-    //         var x = document.createElement("SELECT");
-    //         x.setAttribute("id", "age");
-    //         document.body.appendChild(x);
-
-    //         var z = document.createElement("option");
-    //         z.setAttribute("value", "age");
-    //         var t = document.createTextNode("Lit Supplémentaire");
-    //         z.appendChild(t);
-    //         document.getElementById("age").appendChild(z);
-    //         break;
-    //     case (v >= 2 && v<= 10):
-    //         break;
-    //     case (v >= 14):
-    //         break;
-    //     default: 
-    //         console.log("Failed");
-    //         break;
-    // }
 }
 

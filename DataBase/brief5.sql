@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2021 at 05:29 AM
+-- Generation Time: May 07, 2021 at 02:32 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -69,7 +69,8 @@ CREATE TABLE `reservation` (
   `Date_sortie` datetime NOT NULL,
   `id_pension` int(11) NOT NULL,
   `id_bien` int(11) NOT NULL,
-  `id_tarifs` int(11) NOT NULL
+  `id_tarifs` int(11) NOT NULL,
+  `ID_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -139,6 +140,7 @@ ALTER TABLE `pension`
 --
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`ID_reservation`),
+  ADD UNIQUE KEY `ID_user` (`ID_user`),
   ADD KEY `id_bien` (`id_bien`),
   ADD KEY `id_tarifs` (`id_tarifs`);
 
@@ -216,7 +218,8 @@ ALTER TABLE `children`
 --
 ALTER TABLE `reservation`
   ADD CONSTRAINT `id_bien` FOREIGN KEY (`id_bien`) REFERENCES `bien` (`ID_bien`),
-  ADD CONSTRAINT `id_tarifs` FOREIGN KEY (`id_tarifs`) REFERENCES `tarifs` (`Id_tarifs`);
+  ADD CONSTRAINT `id_tarifs` FOREIGN KEY (`id_tarifs`) REFERENCES `tarifs` (`Id_tarifs`),
+  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`ID_user`) REFERENCES `user` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
