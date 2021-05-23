@@ -48,34 +48,37 @@
         <div class="container">
             <div class="row mt-4">
                 <div class="col-sm-4 order-md-2 mb-4">
+                    <div class="message"></div>
                     <form class="card p-2">
                         <img src="Assets/Img/font.jpg" alt="" id="resImg">
                         <div class="input-group-append text-center m-1">
                             <label id="description" class="m-2 fs-4">Our beautiful Destinations</label>
                         </div>
+                        <div id="price"></div>
                     </form>
                 </div>
                 <!----billing address-->
                 <div class="col-sm-8 order-md-1">
                     <h4 class="mb-3 text-center fs-1">Reservation</h4>
-                    <form class="needs-validation" novalidate="">
-                        <!---first name-->
+                    <form class="needs-validation" novalidate="" method="post">
+                        <!---CHECKIN-->
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="Firstname">Date In</label>
-                                <input id="fn" class="form-control" type="date" required="">
+                                <label>Date In</label>
+                                <input class="form-control" name="Date_entree" type="date" required="">
 
                             </div>
-                            <!----last name---->
+                            <!----CHeckOut---->
                             <div class="col-md-6 mb-3">
-                                <label for="Lasttname">Date Out</label>
-                                <input id="ln" class="form-control" type="date" required="">
+                                <label>Date Out</label>
+                                <input class="form-control" name="Date_sortie" type="date" required="">
                             </div>
                         </div>
+                        <!-- Good to reserve -->
                         <div class="col-md-4 mb-3">
                             <div class="">
-                                <label for="" class="">Choose a Good to reserve!</label>
-                                <select name="reservation" value="" id="good" onchange="Good()">
+                                <label>Choose a Good to reserve!</label>
+                                <select name="reservation" name="id_bien" value="" id="good" onchange="Good()">
                                     <option value="empty"></option>
                                     <option value="simplechamber">Normal Chamber</option>
                                     <option value="doublechamber">Double Chamber</option>
@@ -85,10 +88,13 @@
                                 <div id="affichage"></div>
                             </div>
                         </div>
+                        <div id="view_div"></div>
+                        <div id=""></div>
+                        <!-- Pension  -->
                         <div>
                             <div class="">
                                 <label for="" class="">Choose a Pension!</label>
-                                <select name="" value="" id="pension" onchange="">
+                                <select name="id_pension" id="pension" onchange="pension_func()">
                                     <option value="empty"></option>
                                     <option value="nopension">None</option>
                                     <option value="allpension">Complete</option>
@@ -99,20 +105,37 @@
                                 </select>
                             </div>
                         </div>
+                        <!-- How many Days -->
                         <div>
-
-                            <div class="">
-                                <label for="">How many Kids You have ?</label>
-                                <input type="number" id="nbr_childs" oninput="kids()">
-                                <div id="display"></div>
+                            <label>For how Many Days ?</label>
+                            <div class="d-flex justify-content-start">
+                                <input type="number" onchange="days()" pattern="[1-9]"
+                                    value="1" min="1" name="days_book" id="days">
                             </div>
-
                         </div>
-                        <!---button-->
-                        <hr class="mb-4">
+                        <hr class="my-4">
+                        <!-- Children -->
+                        <div class="d-flex justify-content-around">
+                            <div class="form-check">
+                                <input id="no_child" name="child" type="checkbox" 
+                                    onchange="check_add_children()" required>
+                                <label>Without Children</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="with_child" name="child" type="checkbox" 
+                                    onchange="check_add_children()" required>
+                                <label>With Children</label>
+                            </div>
+                        </div>
+                        <div id="plus_children"></div>
+                        <div id="extra"></div>
+                        <hr class="my-4">
+                        <!--- Reservation button-->
                         <div class="d-flex justify-content-between mx-auto">
-                            <button class="btn btn-success btn-block m-2" id="finalbooking" type="submit">Book Now</button>
-                            <button class="btn btn-primary btn-block m-2" id="addreservation" type="submit">Add Reservation</button>
+                            <button class="btn btn-success btn-block m-2" id="finalbooking" name="book"
+                                type="submit">Book Now</button>
+                            <button class="btn btn-primary btn-block m-2" id="addreservation" name="add"
+                                type="submit">Add Reservation</button>
                         </div>
                     </div>
                 </form>

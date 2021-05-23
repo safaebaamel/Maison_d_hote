@@ -4,27 +4,32 @@
     include_once '../Classes/Session.class.php';
     include_once '../Classes/Redirect.class.php';
 
-    class reservationController {
-
-        public function stockReservation() {
+    class ReservationController {
+        
+        public function book()  {
+            $reservation = new Reservation();
             if (isset($_POST['book'])) {
+        
                 $data = array(
-                    'date_entree' => $_POST['date_entree'],
-                    'date_sortie' => $_POST['date_sortie'], 
-                    'email' => $_POST['email'],
-                    'password' => $_POST['password'],
+                    'Date_entree' => $_POST['Date_entree'],
+                    'Date_sortie' => $_POST['Date_sortie']
+                    // 'ID_user' => $_POST['ID_user'],
+                    // 'id_bien' => $_POST['id_bien'],
+                    // 'id_pension' => $_POST['id_pension']
                 );
-                $result = User::createUser($data);
-                if ($result == 'ok') {
-                     Session::set('success', 'Client Added');
-                     Redirect::to('signin.php');
-                } else {
-                    echo $result;
-                }
+                echo '<script>alert("ok");</script>';
+                $reservation->createNewReservation($data);
             }
         }
+        
+        public function delete() {
+            if (isset($_GET['delete'])) {
+                echo '<script>alert("ok");</script>';
+                $id = $_GET['delete'];
+            
+                $reservation->deleteReservation($id);
+            }
+        }
+    }
 
-   
-
-
-?>
+?> 

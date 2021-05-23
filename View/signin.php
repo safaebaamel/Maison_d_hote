@@ -1,6 +1,6 @@
 <?php 
 
-    // include '../Controllers/UserController.php';
+    include '../Controllers/UserController.php';
     if (isset($_POST['login'])) {
         $createuser = new userController;
         $createuser->auth();
