@@ -112,6 +112,7 @@ function Good() {
                                                 <option value="outside_view">Outside View</option>
                                             </select>`;
             price_chamber = simple_chamber;
+            document.getElementById("resImg").src = "Assets/Img/chamber.jpg";
             total();
             break;
         case "doublechamber":
@@ -122,14 +123,17 @@ function Good() {
                                                 <option value="simplebed">2 Simple Beds</option>
                                             </select>`;
             price_chamber = double_chamber;
+            document.getElementById("resImg").src = "Assets/Img/double.jpg";
             total();
             break;
         case "appartment":
             price_chamber = appartment_price;
+            document.getElementById("resImg").src = "Assets/Img/appartment.jpg";
             total();
             break;
         case "bungalow":
             price_chamber = bungalow_price;
+            document.getElementById("resImg").src = "Assets/Img/bungalow.jpg";
             total();
             break;
         case "empty":
@@ -192,13 +196,6 @@ function bedType() {
     }
 }
 
-// function view_type_func_double() {
-//     var double_view_type = document.getElementById("view_double").value;
-//     switch (double_view_type) {
-//         case "inside_view":
-
-//     }
-// }
 
 function pension_func() {
     switch(pension_val.value) {
