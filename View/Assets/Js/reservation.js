@@ -164,12 +164,12 @@ function view_type_func() {
 }
 
 function bedType() {
-
     var bed_type = document.getElementById("bed").value;
+    var double_type_v = document.getElementById("double_type");
     console.log(bed_type);
     switch (bed_type) {
         case "simplebed":
-            view_div.innerHTML = `<label class="form-label">View Type</label>
+            double_type_v.innerHTML = `<label class="form-label">View Type</label>
             <select  onchange="view_type_func()" name="view" class="form-select" id="view_t" required>
                 <option value="">Select</option>
                 <option value="inside_view">Inside View</option>
@@ -177,7 +177,7 @@ function bedType() {
             total();
             break;
         case "doublebed":
-            view_div.innerHTML = `<label class="form-label">View Type</label>
+            double_type_v.innerHTML = `<label class="form-label">View Type</label>
             <select  onchange="view_type_func()" name="view" class="form-select" id="view_t" required>
                 <option value="">Select</option>
                 <option value="inside_view">Inside View</option>
@@ -186,11 +186,19 @@ function bedType() {
             total();
             break;
         default:
-            view_div.innerHTML = ` `;
+            double_type_v.innerHTML = ` `;
             total();
             break;
     }
 }
+
+// function view_type_func_double() {
+//     var double_view_type = document.getElementById("view_double").value;
+//     switch (double_view_type) {
+//         case "inside_view":
+
+//     }
+// }
 
 function pension_func() {
     switch(pension_val.value) {

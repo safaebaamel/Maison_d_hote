@@ -89,7 +89,7 @@
                             </div>
                         </div>
                         <div id="view_div"></div>
-                        <div id=""></div>
+                        <div id="double_type"></div>
                         <!-- Pension  -->
                         <div>
                             <div class="">
