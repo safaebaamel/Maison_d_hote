@@ -86,11 +86,9 @@ var plus_children = document.getElementById("plus_children")
 var total_desc = document.getElementById("total_desc")
 // var img_Bine = document.getElementById("img_Bine");
 var price = document.getElementById("price");
-var view_type = document.getElementById("view_t");
-var bed_type = document.getElementById("bed");
 var add_simple_bed = ((simple_chamber * 100) / 70);
 var baby_bed = ((simple_chamber / 100) + 25);
-var outside_view_price = ((simple_chamber / 100) + 20);
+var outside_view_price = ((simple_chamber * 20) / 100);
 var medium_child = ((simple_chamber / 100) + 50);
 var pension_complete = 400;
 var pension_half = 200;
@@ -100,7 +98,6 @@ var appartment_price = 4000;
 var bungalow_price = 4500;
 var outside_view = 400;
 var price_chamber = 0;
-var price_view = 0;
 var price_pension_full = 500;
 var price_pension = 0;
 var tarifs = 0;
@@ -146,24 +143,34 @@ function Good() {
     }
 }
 
+var price_view = 0;
+
 function view_type_func() {
-    switch (view_type.value) {
-        case "outside_view":
-            price_view = outside_view_price;
-            total();
-            break;
-        default:
+    var view_type = document.getElementById("view_t").value;
+    console.log(view_type);
+    switch (view_type) {
+        case "inside_view":
             price_view = 0;
             total();
             break;
+        case "outside_view":
+            price_view = 300;
+            total();
+            break;
+        default:
+            break;
     }
+    console.log(price_view);
 }
 
 function bedType() {
-    switch (bed_type.value) {
+
+    var bed_type = document.getElementById("bed").value;
+    console.log(bed_type);
+    switch (bed_type) {
         case "simplebed":
             view_div.innerHTML = `<label class="form-label">View Type</label>
-            <select  onchange="view_type_func()" name="view" class="form-select" id="view" required>
+            <select  onchange="view_type_func()" name="view" class="form-select" id="view_t" required>
                 <option value="">Select</option>
                 <option value="inside_view">Inside View</option>
             </select>`;
@@ -171,7 +178,7 @@ function bedType() {
             break;
         case "doublebed":
             view_div.innerHTML = `<label class="form-label">View Type</label>
-            <select  onchange="view_type_func()" name="view" class="form-select" id="view" required>
+            <select  onchange="view_type_func()" name="view" class="form-select" id="view_t" required>
                 <option value="">Select</option>
                 <option value="inside_view">Inside View</option>
                 <option value="outside_view">Outside View</option>
