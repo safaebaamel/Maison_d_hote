@@ -27,11 +27,12 @@
             if(isset($_POST['login'])){
                 echo"test";
                 $data['Email'] = $_POST['Email'];
+                $data['Password'] = $_POST['Password'];
                 $result = User::login($data);
-                if($result->Email === $_POST['Email']){
+                if($result->Email === $_POST['Email'] && $result->Password == $_POST['Password']){
                     $_SESSION['logged'] = true;
                     $_SESSION['Email'] = $result->Email;
-                    Redirect::to('Dashboard/ClientDash.php');
+                    Redirect::to('ClientDash.php');
                 }else{
                     Session::set('error','Pseudo ou mot de passe est incorrect');
                     echo "sdd";
@@ -42,6 +43,7 @@
 
         static public function logout(){
             session_destroy();
+            header("location: index.php");
         }
     
 

@@ -30,15 +30,6 @@
                     <li class="nav-item">
                         <a href="index.php" class="nav-link text-white fs-5">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="gallery.php" class="nav-link text-white fs-5">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="signin.php" class="nav-link text-white fs-5">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="reservation.php" class="nav-link  text-white fs-5 border-bottom">Reservation</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -57,6 +48,7 @@
                         <div class="text-center" style="color: blue;"id="price"></div>
                     </form>
                 </div>
+               
                 <!----billing address-->
                 <div class="col-sm-8 order-md-1">
                     <h4 class="mb-3 text-center fs-1">Reservation</h4>

@@ -35,7 +35,7 @@
                         <a href="signin.php" class="nav-link text-white fs-5">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="reservation.php" class="nav-link  text-white fs-5 border-bottom">Reservation</a>
+                        <a href="signup.php" class="nav-link  text-white fs-5 border-bottom">Reservation</a>
                     </li>
                 </ul>
             </div>

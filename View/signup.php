@@ -42,7 +42,7 @@
                         <a href="signin.php" class="nav-link text-white fs-5">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="reservation.php" class="nav-link btn text-white fs-5 border-bottom">Reservation</a>
+                        <a href="signup.php" class="nav-link btn text-white fs-5 border-bottom">Reservation</a>
                     </li>
                 </ul>
             </div>
@@ -55,7 +55,12 @@
                 <div class="col-lg-5 p-0">
                     <img src="Assets/Img/login.jpg" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-7 px-5 pt-5">
+                <div class="col-lg-7 px-5 pt-2">
+                     <!-- Alert -->
+                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Login First!</strong> OR SIGN UP!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                     <h1 class="font-weight-bold py-3">Sign Up</h1>
                     <h4>Welcome Among Us</h4>
                     <form method="POST">

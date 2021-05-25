@@ -13,9 +13,9 @@
                 $data = array(
                     'Date_entree' => $_POST['Date_entree'],
                     'Date_sortie' => $_POST['Date_sortie']
-                    // 'ID_user' => $_POST['ID_user'],
-                    // 'id_bien' => $_POST['id_bien'],
-                    // 'id_pension' => $_POST['id_pension']
+                    'ID_user' => $_POST['ID_user'],
+                    'id_bien' => $_POST['id_bien'],
+                    'id_pension' => $_POST['id_pension']
                 );
                 echo '<script>alert("ok");</script>';
                 $reservation->createNewReservation($data);

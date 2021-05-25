@@ -10,9 +10,9 @@
 
             $query->bindParam(':date_entree',$data['date_entree']);
             $query->bindParam(':date_sortie',$data['date_sortie']);
-            // $query->bindParam(':id_user',$data['id_user']);
-            // $query->bindParam(':id_bien',$data['id_bien']);
-            // $query->bindParam(':id_pension',$data['id_pension']);
+            $query->bindParam(':id_user',$data['id_user']);
+            $query->bindParam(':id_bien',$data['id_bien']);
+            $query->bindParam(':id_pension',$data['id_pension']);
 
             if($query->execute()){
                 return 'ok';

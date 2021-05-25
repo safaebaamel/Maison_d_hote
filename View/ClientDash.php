@@ -8,12 +8,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Admin Panel</title>
+    <title>Client Dash</title>
     <!-- Bootstrap core CSS -->
-    <link href="../Assets/Style/bootstrap.min.css" rel="stylesheet">
+    <link href="Assets/Style/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../Assets/Style/dashboard.css" rel="stylesheet">
+    <link href="Assets/Style/dashboard.css" rel="stylesheet">
   </head>
 
   <body>
@@ -39,42 +39,30 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="shopping-cart"></span>
-                  Clients
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="reservation.php">
                   <span data-feather="users"></span>
                   Reservations
                 </a>
               </li>
+              <?php 
+                // include '../Controllers/UserController.php';
+                // $disc = new userController;
+                // if ($_POST['disconnect']) {
+                //   echo "ok";
+                //   $disc->logout();
+                //   header("location: index.php");
+                // }
+              ?>
               <li class="nav-item">
-                <a class="nav-link fw-bold" href="#">
+                <a class="nav-link fw-bold" href="index.php?disconnect">
                   <span data-feather="layers"></span>
-                  Disconnect
+                  Disconnect 
                 </a>
               </li>
             </ul>
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Dashboard</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Share</button>
-                <button class="btn btn-sm btn-outline-secondary">Export</button>
-              </div>
-              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-                This week
-              </button>
-            </div>
-          </div>
-
-
           <h2>Section title</h2>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
