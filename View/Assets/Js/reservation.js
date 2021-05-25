@@ -55,10 +55,12 @@ function Good() {
         case "appartment":
             price_chamber = appartment_price;
             document.getElementById("resImg").src = "Assets/Img/appartment.jpg";
+            affichage.innerHTML = " ";
             total();
             break;
         case "bungalow":
             price_chamber = bungalow_price;
+            affichage.innerHTML = " ";
             document.getElementById("resImg").src = "Assets/Img/bungalow.jpg";
             total();
             break;
@@ -68,6 +70,7 @@ function Good() {
             break;
         default:
             price_chamber = 0;
+            affichage.innerHTML = " ";
             total();
             break;
     }
