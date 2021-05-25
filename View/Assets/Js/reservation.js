@@ -88,8 +88,7 @@ var total_desc = document.getElementById("total_desc")
 var price = document.getElementById("price");
 var view_type = document.getElementById("view_t");
 var bed_type = document.getElementById("bed");
-var total_days = document.getElementById("days").value;
-var add_simple_bed = (simple_chamber * 0.7);
+var add_simple_bed = ((simple_chamber * 100) / 70);
 var baby_bed = ((simple_chamber / 100) + 25);
 var outside_view_price = ((simple_chamber / 100) + 20);
 var medium_child = ((simple_chamber / 100) + 50);
@@ -196,7 +195,11 @@ function pension_func() {
             price_pension = price_pension_full;
             total();
             break;
-        case "Half":
+        case "breakfastandlunch":
+            price_pension = (price_pension_full/2);
+            total();
+            break;
+        case "breakfastanddinner":
             price_pension = (price_pension_full/2);
             total();
             break;
@@ -233,7 +236,8 @@ function check_add_children() {
             <div  class="col-md-6">
                 <label class="form-label">Choose</label>
                     <select class="form-select" id="twoten_kids_add" onchange="func_extras_m()" required>
-                        <option value="simplechamber">Simple Chamber</option>
+                        <option value="Null"></option>
+                        <option value="simple_chamber">Simple Chamber</option>
                     </select>
             </div>
         </div>
@@ -275,17 +279,21 @@ function func_extras_b() {
 }
 
 var price_extra_m = 0;
-
 function func_extras_m() {
     var m = document.getElementById("twoten_kids_add");
     switch(m.value) {
-        case "simplechamber":
-            price_extra_m = medium_child;
+        case "NULL":
+            price_extra_m = 0;
+            total()
+            break;
+        case "simple_chamber":
+            price_extra_m = 750;
+            total()
             break;
         default:
-            price_extra_m = 0; 
             break;
     }
+    console.log(price_extra_m);
 }
 
 var price_extra_a = 0;
@@ -298,7 +306,7 @@ function func_extras_a() {
             total()
             break;
         case "plusbed":
-            price_extra_a = add_simple_bed;
+            price_extra_a = ((simple_chamber * 70) / 100);
             total()
             break;
         default:
@@ -307,6 +315,7 @@ function func_extras_a() {
 }
 
 function total() {
-    tarifs = (price_chamber + price_view + price_pension + price_extra_m + price_extra_b + price_extra_a) * total_days;
+    var total_days = document.getElementById("days").value;
+    tarifs = ((price_chamber + price_view + price_pension) * total_days + price_extra_m + price_extra_b + price_extra_a);
     price.innerHTML = "Total Price: " + tarifs + "DH";
 }

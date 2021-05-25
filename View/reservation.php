@@ -105,14 +105,6 @@
                                 </select>
                             </div>
                         </div>
-                        <!-- How many Days -->
-                        <div>
-                            <label>For how Many Days ?</label>
-                            <div class="d-flex justify-content-start">
-                                <input type="number" onchange="days()" pattern="[1-9]"
-                                    value="1" min="1" name="days_book" id="days">
-                            </div>
-                        </div>
                         <hr class="my-4">
                         <!-- Children -->
                         <div class="d-flex justify-content-around">
@@ -130,6 +122,14 @@
                         <div id="plus_children"></div>
                         <div id="extra"></div>
                         <hr class="my-4">
+                        <!-- How many Days -->
+                        <div>
+                            <label>For how Many Days ?</label>
+                            <div class="d-flex justify-content-start">
+                                <input type="number" onchange="total()" pattern="[1-9]"
+                                    value="1" min="1" name="days_book" id="days">
+                            </div>
+                        </div>
                         <!--- Reservation button-->
                         <div class="d-flex justify-content-between mx-auto">
                             <button class="btn btn-success btn-block m-2" id="finalbooking" name="book"
