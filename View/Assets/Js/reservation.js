@@ -333,4 +333,5 @@ function total() {
     var total_days = document.getElementById("days").value;
     tarifs = ((price_chamber + price_view + price_pension) * total_days + price_extra_m + price_extra_b + price_extra_a);
     price.innerHTML = "Total Price: " + tarifs + "DH";
+    price.style.alignContent= "center";
 }

@@ -54,7 +54,7 @@
                         <div class="input-group-append text-center m-1">
                             <label id="description" class="m-2 fs-4">Our beautiful Destinations</label>
                         </div>
-                        <div id="price"></div>
+                        <div class="text-center" style="color: blue;"id="price"></div>
                     </form>
                 </div>
                 <!----billing address-->
