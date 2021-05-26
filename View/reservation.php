@@ -1,10 +1,4 @@
-<?php
-    include '../Controllers/ReservationController.php';
-    
-    $res = new ReservationController;
-    $res->book();
-?>
-
+<?php?>
 <!DOCTYPE html>
 <html>
 <head>

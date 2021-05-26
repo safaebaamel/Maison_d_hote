@@ -1,41 +1,90 @@
-<?php
-    
-    include '../DataBase/db.php';
+<?php 
 
-    class Reservation {
+class Reservation {
 
-        static  function createNewReservation($data)
-        {
-            $strm = DB::connect()->prepare('INSERT INTO `reservation`(`Date_entree`, `Date_sortie`, `ID_user`) VALUES
-            (:date_entrer,:date_sortie,:id_user) ');
-            // INSERT INTO `reservation`(`ID_reservation`, `Date_entree`, `Date_sortie`, `id_pension`, `id_bien`, `id_tarifs`, `ID_user`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]')
-            $strm->bindParam((':date_entrer'), $data['date_entrer']);
-            $strm->bindParam((':date_sortie'), $data['date_sortie']);
-            // $strm->bindParam((':id_user'), 1);
-            
-            // if ($strm->execute()) {
-            //     return 'ok';
-            // } else {
-            //     return 'error';
-            // }
-            // Redirect::to('ClientDash.php');
-        }
+	static public function getAll(){
+		$stmt = DB::connect()->prepare('SELECT * FROM employes');
+		$stmt->execute();
+		return $stmt->fetchAll();
+		$stmt->close();
+		$stmt = null;
+	}
 
-        static public function deleteReservation($id)
-        {
-            $query = DB::connect()->prepare('DELETE FROM reservation WHERE id_user =" . $id');
+	static public function getEmploye($data){
+		$id = $data['id'];
+		try{
+			$query = 'SELECT * FROM employes WHERE id=:id';
+			$stmt = DB::connect()->prepare($query);
+			$stmt->execute(array(":id" => $id));
+			$employe = $stmt->fetch(PDO::FETCH_OBJ);
+			return $employe;
+		}catch(PDOException $ex){
+			echo 'erreur' . $ex->getMessage();
+		}
+	}
 
-            $query->execute();
-            if($query->execute()){
-                return 'ok';
-            }else{
-                return 'error';
-            }
-            $query->close();
-            $query = null;
-        }
-    }
+	static public function add($data){
+		$stmt = DB::connect()->prepare('INSERT INTO employes (nom,prenom,matricule,depart,poste,date_emb,statut)
+			VALUES (:nom,:prenom,:matricule,:depart,:poste,:date_emb,:statut)');
+		$stmt->bindParam(':nom',$data['nom']);
+		$stmt->bindParam(':prenom',$data['prenom']);
+		$stmt->bindParam(':matricule',$data['matricule']);
+		$stmt->bindParam(':depart',$data['depart']);
+		$stmt->bindParam(':poste',$data['poste']);
+		$stmt->bindParam(':date_emb',$data['date_emb']);
+		$stmt->bindParam(':statut',$data['statut']);
 
-?>
+		if($stmt->execute()){
+			return 'ok';
+		}else{
+			return 'error';
+		}
+		$stmt->close();
+		$stmt = null;
+	}
+	static public function update($data){
+		$stmt = DB::connect()->prepare('UPDATE employes SET nom= :nom,prenom=:prenom,matricule=:matricule,depart=:depart,poste=:poste,date_emb=:date_emb,statut=:statut WHERE id=:id');
+		$stmt->bindParam(':id',$data['id']);
+		$stmt->bindParam(':nom',$data['nom']);
+		$stmt->bindParam(':prenom',$data['prenom']);
+		$stmt->bindParam(':matricule',$data['matricule']);
+		$stmt->bindParam(':depart',$data['depart']);
+		$stmt->bindParam(':poste',$data['poste']);
+		$stmt->bindParam(':date_emb',$data['date_emb']);
+		$stmt->bindParam(':statut',$data['statut']);
+		if($stmt->execute()){
+			return 'ok';
+		}else{
+			return 'error';
+		}
+		$stmt->close();
+		$stmt = null;
+	}
 
+	static public function delete($data){
+		$id = $data['id'];
+		try{
+			$query = 'DELETE FROM employes WHERE id=:id';
+			$stmt = DB::connect()->prepare($query);
+			$stmt->execute(array(":id" => $id));
+			if($stmt->execute()){
+				return 'ok';
+			}
+		}catch(PDOException $ex){
+			echo 'erreur' . $ex->getMessage();
+		}
+	}
 
+	static public function searchEmploye($data){
+		$search = $data['search'];
+		try{
+			$query = 'SELECT * FROM employes WHERE nom LIKE ? OR prenom LIKE ?';
+			$stmt = DB::connect()->prepare($query);
+			$stmt->execute(array('%'.$search.'%','%'.$search.'%'));
+			$employes = $stmt->fetchAll();
+			return $employes;
+		}catch(PDOException $ex){
+			echo 'erreur' . $ex->getMessage();
+		}
+	}
+}
