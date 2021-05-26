@@ -29,7 +29,7 @@ class ReservationController{
 				'date_entrer' => $_POST['Date_entree'],
 				'date_sortie' => $_POST['Date_sortie'],
 				'chambre_type' => $_POST['reservation'],
-				'chambre_view' => $_POST['view'],
+				'chambre_view' => $_POST['view'] ?? 'NULL',
 				'pension' => $_POST['id_pension'],
 				'enfants' => $_POST['child'],
 				// 'chambre_plus_type' => $_POST['twoten_kids_add'],
@@ -37,7 +37,7 @@ class ReservationController{
 				// 'age_bebe' => $_POST['undertwo_kids'],
 				// 'age_enfant' => $_POST['undertwo_kids'],
 				// 'age_ado' => $_POST['older_kids'],
-				'tarifs' => 300,
+				'tarifs' => 100
 			);
 			$result = Reservation::add($data);
 			if($result === 'ok'){
@@ -63,7 +63,7 @@ class ReservationController{
 				'age_bebe' => $_POST['undertwo_kids'],
 				'age_enfant' => $_POST['undertwo_kids'],
 				'age_ado' => $_POST['older_kids'],
-				'tarifs' => $_POST['tarifs'],
+				'tarifs' => $_POST['price'],
 			);
 			$result = Reservation::update($data);
 			if($result === 'ok'){
