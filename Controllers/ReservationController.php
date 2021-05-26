@@ -29,6 +29,7 @@ class ReservationController{
 				'date_entrer' => $_POST['Date_entree'],
 				'date_sortie' => $_POST['Date_sortie'],
 				'chambre_type' => $_POST['reservation'],
+				'chambre_view' => $_POST['view'],
 				'pension' => $_POST['id_pension'],
 				'enfants' => $_POST['child'],
 				// 'chambre_plus_type' => $_POST['twoten_kids_add'],
@@ -41,19 +42,20 @@ class ReservationController{
 			$result = Reservation::add($data);
 			if($result === 'ok'){
 				Session::set('success','Reservation Ajouté');
-				Redirect::to('index.php');
+				Redirect::to('ClientDash.php');
 			}else{
 				echo $result;
 			}
 		}
 	}
 
-	public function updateEmploye(){
+	public function updateReservation(){
 		if(isset($_POST['submit'])){
 			$data = array(
 				'date_entrer' => $_POST['Date_entree'],
 				'date_sortie' => $_POST['Date_sortie'],
 				'chambre_type' => $_POST['reservation'],
+				'chambre_view' => $_POST['view'],
 				'pension' => $_POST['id_pension'],
 				'enfants' => $_POST['child'],
 				'chambre_plus_type' => $_POST['twoten_kids_add'],
@@ -66,7 +68,7 @@ class ReservationController{
 			$result = Reservation::update($data);
 			if($result === 'ok'){
 				Session::set('success','Reservation Modifié');
-				Redirect::to('index.php');
+				Redirect::to('ClientDash.php');
 			}else{
 				echo $result;
 			}
@@ -78,7 +80,7 @@ class ReservationController{
 			$result = Reservation::delete($data);
 			if($result === 'ok'){
 				Session::set('success','Reservation Supprimé');
-				Redirect::to('index.php');
+				Redirect::to('ClientDash.php');
 			}else{
 				echo $result;
 			}
