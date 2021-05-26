@@ -155,11 +155,11 @@ function check_add_children() {
         <div class="row"> 
             <div class="col-md-6">
                 <label class="form_label">Under 2 Years old? </label>
-                <input type="number" class="form-control" oninput=""  id="undertwo_kids" placeholder="< 2YO">
+                <input type="number" class="form-control" oninput="" name="undertwo_kids" id="undertwo_kids" placeholder="< 2YO">
             </div>
             <div  class="col-md-6" id="">
                 <label class="form-label">Choose</label>
-                    <select class="form-select" onchange="func_extras_b()" id="undertwo_kids_add" required>
+                    <select class="form-select" onchange="func_extras_b()" name="undertwo_kids_add" id="undertwo_kids_add" required>
                         <option value="Nobed">No bed</option>
                         <option value="Extrabed">Extra Bed</option>
                     </select>
@@ -168,11 +168,11 @@ function check_add_children() {
         <div class="row">
             <div class="col-md-6">
                 <label class="form_label">Between 3 and 14? </label>
-                <input type="number" class="form-control" oninput="" id="twoten_kids" placeholder=" 2 < < 14 ">
+                <input type="number" class="form-control" oninput="" name="twoten_kids" id="twoten_kids" placeholder=" 2 < < 14 ">
             </div>
             <div  class="col-md-6">
                 <label class="form-label">Choose</label>
-                    <select class="form-select" id="twoten_kids_add" onchange="func_extras_m()" required>
+                    <select class="form-select" id="twoten_kids_add" name="twoten_kids_add" onchange="func_extras_m()" required>
                         <option value="Null"></option>
                         <option value="simple_chamber">Simple Chamber</option>
                     </select>
@@ -181,11 +181,11 @@ function check_add_children() {
         <div class="row">
             <div class="col-md-6">
                 <label class="form_label">Older than 14 ?</label>
-                <input type="number" class="form-control" oninput="" id="older_kids" placeholder=" > 14 ">
+                <input type="number" class="form-control" oninput="" name="older_kids" id="older_kids" placeholder=" > 14 ">
             </div>
             <div  class="col-md-6">
                 <label class="form-label">Choose</label>
-                    <select class="form-select" id="adults" onchange="func_extras_a()" required>
+                    <select class="form-select" id="adults" name="adults" onchange="func_extras_a()" required>
                         <option value="simplechamber">Simple Chamber</option>
                         <option value="plusbed">Extra Bed</option>
                     </select>

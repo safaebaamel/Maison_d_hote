@@ -1,4 +1,9 @@
-<?php?>
+<?php
+    include_once '../Controllers/ReservationController.php';
+
+    $res = new ReservationController;
+    $res->addReservation();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +33,7 @@
                 <div class="mx-auto"></div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="index.php" class="nav-link text-white fs-5">Home</a>
+                        <a href="ClientDash.php" class="nav-link text-white fs-5">Dashboard</a>
                     </li>
                 </ul>
             </div>
@@ -100,12 +105,12 @@
                         <!-- Children -->
                         <div class="d-flex justify-content-around">
                             <div class="form-check">
-                                <input id="no_child" name="child" type="checkbox" 
+                                <input id="no_child" name="child" value="false" type="checkbox" 
                                     onchange="check_add_children()" required>
                                 <label>Without Children</label>
                             </div>
                             <div class="form-check">
-                                <input id="with_child" name="child" type="checkbox" 
+                                <input id="with_child" name="child" value="true" type="checkbox" 
                                     onchange="check_add_children()" required>
                                 <label>With Children</label>
                             </div>
