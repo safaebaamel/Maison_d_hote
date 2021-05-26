@@ -1,4 +1,3 @@
-
 // Geting everything with Ids 
 
 var good = document.getElementById("good");
@@ -124,7 +123,7 @@ function bedType() {
 
 
 function pension_func() {
-    switch(pension_val.value) {
+    switch (pension_val.value) {
         case "nopension":
             price_pension = 0;
             total();
@@ -134,11 +133,11 @@ function pension_func() {
             total();
             break;
         case "breakfastandlunch":
-            price_pension = (price_pension_full/2);
+            price_pension = (price_pension_full / 2);
             total();
             break;
         case "breakfastanddinner":
-            price_pension = (price_pension_full/2);
+            price_pension = (price_pension_full / 2);
             total();
             break;
         default:
@@ -151,7 +150,7 @@ function pension_func() {
 function check_add_children() {
     extra = document.getElementById("extra");
     if (with_child.checked) {
-        plus_children.innerHTML =`
+        plus_children.innerHTML = `
         <hr class="my-4">
         <div class="row"> 
             <div class="col-md-6">
@@ -199,9 +198,10 @@ function check_add_children() {
 }
 
 var price_extra_b = 0;
+
 function func_extras_b() {
     var el = document.getElementById("undertwo_kids_add");
-    switch(el.value) {
+    switch (el.value) {
         case "Nobed":
             price_extra_b = 0;
             total();
@@ -217,9 +217,10 @@ function func_extras_b() {
 }
 
 var price_extra_m = 0;
+
 function func_extras_m() {
     var m = document.getElementById("twoten_kids_add");
-    switch(m.value) {
+    switch (m.value) {
         case "NULL":
             price_extra_m = 0;
             total()
@@ -252,9 +253,19 @@ function func_extras_a() {
     }
 }
 
+
 function total() {
-    var total_days = document.getElementById("days").value;
-    tarifs = ((price_chamber + price_view + price_pension) * total_days + price_extra_m + price_extra_b + price_extra_a);
+    var diffDays = 1;
+    d_in = document.getElementById("d_in").value;
+    d_out = document.getElementById("d_out").value;
+
+    var date1 = new Date(d_in)//converts string to date object
+    var date2 = new Date(d_out)
+
+    var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    var diffDays = Math.abs((date1.getTime() - date2.getTime()) / (oneDay));
+
+    tarifs = ((price_chamber + price_view + price_pension) * diffDays + price_extra_m + price_extra_b + price_extra_a);
     price.innerHTML = "Total Price: " + tarifs + "DH";
-    price.style.alignContent= "center";
+    price.style.alignContent = "center";
 }

@@ -24,6 +24,7 @@
         }
 
         public function auth(){
+            session_start();
             if(isset($_POST['login'])){
                 echo"test";
                 $data['Email'] = $_POST['Email'];
@@ -43,17 +44,10 @@
 
         static public function logout(){
             session_destroy();
-            header("location: index.php");
+            header('location: index.php');
         }
     
 
     }
-
-    class reservation {
-
-        
-    }
-
-
 
 ?>

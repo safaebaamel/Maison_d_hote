@@ -4,23 +4,21 @@
 
     class Reservation {
 
-        static public function createNewReservation($data) {
-
-            $query = DB::connect()->prepare('INSERT INTO reservation(Date_entree, Date_sortie) VALUES (:Date_entree, :Date_sortie)');
-
-            $query->bindParam(':date_entree',$data['date_entree']);
-            $query->bindParam(':date_sortie',$data['date_sortie']);
-            $query->bindParam(':id_user',$data['id_user']);
-            $query->bindParam(':id_bien',$data['id_bien']);
-            $query->bindParam(':id_pension',$data['id_pension']);
-
-            if($query->execute()){
-                return 'ok';
-            }else{
-                return 'error';
-            }
-            $query->close();
-            $query = null;
+        static  function createNewReservation($data)
+        {
+            $strm = DB::connect()->prepare('INSERT INTO `reservation`(`Date_entree`, `Date_sortie`, `ID_user`) VALUES
+            (:date_entrer,:date_sortie,:id_user) ');
+            // INSERT INTO `reservation`(`ID_reservation`, `Date_entree`, `Date_sortie`, `id_pension`, `id_bien`, `id_tarifs`, `ID_user`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]')
+            $strm->bindParam((':date_entrer'), $data['date_entrer']);
+            $strm->bindParam((':date_sortie'), $data['date_sortie']);
+            // $strm->bindParam((':id_user'), 1);
+            
+            // if ($strm->execute()) {
+            //     return 'ok';
+            // } else {
+            //     return 'error';
+            // }
+            // Redirect::to('ClientDash.php');
         }
 
         static public function deleteReservation($id)

@@ -20,7 +20,6 @@
     <nav class="navbar navbar-dark sticky-top bg-light flex-md-nowrap p-0">
       <a class="navbar-brand col-sm-3 col-md-2 mr-3 p-4 fs-3" href="#">Vacatya</a>
     </nav>
-
     <div class="container-fluid">
       <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
@@ -61,7 +60,7 @@
               </li>
             </ul>
         </nav>
-
+        
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <h2>Section title</h2>
           <div class="table-responsive">

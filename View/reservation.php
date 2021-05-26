@@ -1,6 +1,12 @@
+<?php
+    include '../Controllers/ReservationController.php';
+    
+    $res = new ReservationController;
+    $res->book();
+?>
+
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,12 +46,12 @@
             <div class="row mt-4">
                 <div class="col-sm-4 order-md-2 mb-4">
                     <div class="message"></div>
-                    <form class="card p-2">
+                    <form class="card p-2" method="post">
                         <img src="Assets/Img/font.jpg" alt="" id="resImg">
                         <div class="input-group-append text-center m-1">
                             <label id="description" class="m-2 fs-4">Our beautiful Destinations</label>
                         </div>
-                        <div class="text-center" style="color: blue;"id="price"></div>
+                        <div class="text-center" style="color: blue;" id="price" name="price"></div>
                     </form>
                 </div>
                
@@ -57,13 +63,12 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label>Date In</label>
-                                <input class="form-control" name="Date_entree" type="date" required="">
-
+                                <input class="form-control" name="Date_entree" id="d_in" onchange="total()" type="date" required="">
                             </div>
                             <!----CHeckOut---->
                             <div class="col-md-6 mb-3">
                                 <label>Date Out</label>
-                                <input class="form-control" name="Date_sortie" type="date" required="">
+                                <input class="form-control" name="Date_sortie" id="d_out" onchange="total()" type="date" required="">
                             </div>
                         </div>
                         <!-- Good to reserve -->
@@ -114,14 +119,6 @@
                         <div id="plus_children"></div>
                         <div id="extra"></div>
                         <hr class="my-4">
-                        <!-- How many Days -->
-                        <div>
-                            <label>For how Many Days ?</label>
-                            <div class="d-flex justify-content-start">
-                                <input type="number" onchange="total()" pattern="[1-9]"
-                                    value="1" min="1" name="days_book" id="days">
-                            </div>
-                        </div>
                         <!--- Reservation button-->
                         <div class="d-flex justify-content-between mx-auto">
                             <button class="btn btn-success btn-block m-2" id="finalbooking" name="book"
