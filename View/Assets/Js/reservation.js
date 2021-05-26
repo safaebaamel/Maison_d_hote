@@ -259,13 +259,15 @@ function total() {
     d_in = document.getElementById("d_in").value;
     d_out = document.getElementById("d_out").value;
 
-    var date1 = new Date(d_in)//converts string to date object
-    var date2 = new Date(d_out)
+    var date1 = new Date(d_in);
+    var date2 = new Date(d_out);
 
     var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
     var diffDays = Math.abs((date1.getTime() - date2.getTime()) / (oneDay));
 
+    
     tarifs = ((price_chamber + price_view + price_pension) * diffDays + price_extra_m + price_extra_b + price_extra_a);
     price.innerHTML = "Total Price: " + tarifs + "DH";
     price.style.alignContent = "center";
+    
 }
