@@ -125,6 +125,7 @@
                                 type="submit">Book Now</button>
                             <button class="btn btn-primary btn-block m-2" id="addreservation" name="add"
                                 type="submit">Add Reservation</button>
+                                <input type="hidden" name="hidden_price" id="hidden_price">
                         </div>
                     </div>
                 </form>

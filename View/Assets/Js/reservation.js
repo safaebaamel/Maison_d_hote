@@ -269,5 +269,9 @@ function total() {
     tarifs = ((price_chamber + price_view + price_pension) * diffDays + price_extra_m + price_extra_b + price_extra_a);
     price.innerHTML = "Total Price: " + tarifs + "DH";
     price.style.alignContent = "center";
-    
+    x = tarifs;
+    // var hid = document.getElementById('hidden_price').value = "x"  ;
+    // hid.innerText = "x";
+    document.getElementById("hidden_price").value = tarifs;
 }
+
