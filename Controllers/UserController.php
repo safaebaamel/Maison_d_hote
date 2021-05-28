@@ -24,16 +24,15 @@
         }
 
         public function auth(){
-            session_start();
             if(isset($_POST['login'])){
-                echo"test";
                 $data['Email'] = $_POST['Email'];
                 $data['Password'] = $_POST['Password'];
                 $result = User::login($data);
                 if($result->Email === $_POST['Email'] && $result->Password == $_POST['Password']){
                     $_SESSION['logged'] = true;
-                    $_SESSION['Email'] = $result->Email;
+                    $_SESSION['email'] = $data['email'];                    
                     Redirect::to('ClientDash.php');
+                    echo $result->Email;
                 }else{
                     Session::set('error','Pseudo ou mot de passe est incorrect');
                     echo "sdd";
@@ -43,6 +42,7 @@
         }
 
         static public function logout(){
+            session_unset();
             session_destroy();
             header('location: index.php');
         }

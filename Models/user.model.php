@@ -5,7 +5,9 @@ include '../DataBase/db.php';
 class User{
 
 	static public function login($data){
+		session_start();
 		$Email = $data['Email'];
+		$_SESSION['id'] = $data['ID'];
 		try{
 			$query = 'SELECT * FROM user WHERE Email=:Email';
 			$stmt = DB::connect()->prepare($query);

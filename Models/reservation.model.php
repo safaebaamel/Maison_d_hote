@@ -13,18 +13,16 @@ class Reservation {
 	}
 
 	static public function getReservation($data){
-		$id = $data['id'];
 		try{
 			$query = 'SELECT * FROM reservation WHERE id=:id';
 			$stmt = DB::connect()->prepare($query);
-			$stmt->execute(array(":id" => $id));
+			$stmt->execute(array(":id" => $_SESSION['id']));
 			$employe = $stmt->fetch(PDO::FETCH_OBJ);
 			return $employe;
 		}catch(PDOException $ex){
 			echo 'erreur' . $ex->getMessage();
 		}
 	}
-	// chambre_plus_type,lit_plus_type,age_bebe,age_enfant,age_ado,tarifs
 
 	static public function add($data){
 		$stmt = DB::connect()->prepare('INSERT INTO reservation (date_entrer,date_sortie,chambre_type,chambre_view,pension,enfants,tarifs)
@@ -35,11 +33,11 @@ class Reservation {
 		$stmt->bindParam(':chambre_view',$data['chambre_view']);
 		$stmt->bindParam(':pension',$data['pension']);
 		$stmt->bindParam(':enfants',$data['enfants']);
-		// $stmt->bindParam(':chambre_plus_type',$data['chambre_plus_type']);
-		// $stmt->bindParam(':lit_plus_type',$data['lit_plus_type']);
-		// $stmt->bindParam(':age_bebe',$data['age_bebe']);
-		// $stmt->bindParam(':age_enfant',$data['age_enfant']);
-		// $stmt->bindParam(':age_ado',$data['age_ado']);
+		$stmt->bindParam(':chambre_plus_type',$data['chambre_plus_type']);
+		$stmt->bindParam(':lit_plus_type',$data['lit_plus_type']);
+		$stmt->bindParam(':age_bebe',$data['age_bebe']);
+		$stmt->bindParam(':age_enfant',$data['age_enfant']);
+		$stmt->bindParam(':age_ado',$data['age_ado']);
 		$stmt->bindParam(':tarifs',$data['tarifs']);
 
 		if($stmt->execute()){

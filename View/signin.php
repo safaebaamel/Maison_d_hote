@@ -1,12 +1,8 @@
 <?php 
 
     include '../Controllers/UserController.php';
-    session_start();
-    if (isset($_POST['login'])) {
-        $createuser = new userController;
-        $createuser->auth();
-
-    } 
+    $createuser = new userController;
+    $createuser->auth();
 
 ?>
 <!doctype html>
