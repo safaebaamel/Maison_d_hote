@@ -25,8 +25,8 @@ class Reservation {
 	}
 
 	static public function add($data){
-		$stmt = DB::connect()->prepare('INSERT INTO reservation (date_entrer,date_sortie,chambre_type,chambre_view,pension,enfants,tarifs)
-			VALUES (:date_entrer,:date_sortie,:chambre_type,:chambre_view,:pension,:enfants,:tarifs)');
+		$stmt = DB::connect()->prepare('INSERT INTO reservation (date_entrer,date_sortie,chambre_type,chambre_view,pension,enfants,chambre_plus_type,lit_plus_type,age_bebe,age_enfant,age_ado,tarifs)
+			VALUES (:date_entrer,:date_sortie,:chambre_type,:chambre_view,:pension,:enfants,:chambre_plus_type,:lit_plus_type,:age_bebe,:age_enfant,:age_ado,:tarifs)');
 		$stmt->bindParam(':date_entrer',$data['date_entrer']);
 		$stmt->bindParam(':date_sortie',$data['date_sortie']);
 		$stmt->bindParam(':chambre_type',$data['chambre_type']);

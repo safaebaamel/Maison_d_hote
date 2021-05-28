@@ -270,8 +270,6 @@ function total() {
     price.innerHTML = "Total Price: " + tarifs + "DH";
     price.style.alignContent = "center";
     x = tarifs;
-    // var hid = document.getElementById('hidden_price').value = "x"  ;
-    // hid.innerText = "x";
     document.getElementById("hidden_price").value = tarifs;
 }
 

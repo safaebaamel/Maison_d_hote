@@ -104,9 +104,9 @@
                         </div>
                         <hr class="my-4">
                         <!-- Children -->
-                        <div class="d-flex justify-content-around">
+                        <div class="d-flex justify-content-around" >
                             <div class="form-check">
-                                <input id="no_child" name="child" value="false" type="checkbox" 
+                                <input id="no_child" name="nochild" value="false" type="checkbox" 
                                     onchange="check_add_children()" required>
                                 <label>Without Children</label>
                             </div>

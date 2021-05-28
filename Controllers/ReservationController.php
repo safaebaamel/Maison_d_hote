@@ -9,9 +9,9 @@
 class ReservationController{
 
 	public function getAllReservations(){
-        $reservations = Reservation::getAllReservations();
-        return $reservations;
-    }
+		$reservation = Reservation::getAll();
+		return $reservation;
+	}
 
     public function addReservation(){
 		if(isset($_POST['book'])){
@@ -21,9 +21,9 @@ class ReservationController{
 				'chambre_type' => $_POST['reservation'],
 				'chambre_view' => $_POST['view'] ?? ' ',
 				'pension' => $_POST['id_pension'],
-				'enfants' => $_POST['child'] ?? ' ',
+				'enfants' => isset($_POST['child']) ? '1' : '0',
 				'chambre_plus_type' => $_POST['twoten_kids_add'] ?? ' ',
-				'lit_plus-type' => $_POST['undertwo_kids_add'] ?? ' ',
+				'lit_plus_type' => $_POST['undertwo_kids_add'] ?? ' ',
 				'age_bebe' => $_POST['undertwo_kids'] ?? ' ',
 				'age_enfant' => $_POST['undertwo_kids'] ?? ' ',
 				'age_ado' => $_POST['older_kids'] ?? ' ',
