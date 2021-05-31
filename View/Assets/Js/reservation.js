@@ -1,258 +1,208 @@
-// Geting everything with Ids 
+// Getting everything with Ids 
 
+var extra = document.getElementById('extra');
 var good = document.getElementById("good");
 var pension_val = document.getElementById("pension");
+var extra_chamber = document.getElementById('extra_chamber');
 var affichage = document.getElementById("affichage");
 var view_div = document.getElementById("view_div");
 var children = document.getElementById("with_child")
 var plus_children = document.getElementById("plus_children")
 var total_desc = document.getElementById("total_desc")
 var price = document.getElementById("price");
-var add_simple_bed = ((simple_chamber * 70) / 100);
-var baby_bed = ((simple_chamber / 100) * 25);
-var outside_view_price = ((simple_chamber * 20) / 100);
-var medium_child = ((simple_chamber * 50) / 100);
+var chamber_add = document.getElementById('chamber_add');
 var pension_complete = 400;
-var pension_half = 200;
-var simple_chamber = 1500;
-var double_chamber = 2500;
-var appartment_price = 4000;
+var simple_chamber = 300;
+var appartment_price = 200;
 var bungalow_price = 4500;
 var outside_view = 400;
-var price_chamber = 0;
-var price_pension_full = 500;
-var price_pension = 0;
 var tarifs = 0;
 
-function Good() {
-    switch (good.value) {
-        case "simplechamber":
-            affichage.innerHTML = `<label class="form-label">View Type</label>
-                                            <select onchange="view_type_func()" name="view" class="form-select" id="view_t" required>
-                                                <option value="">Choose...</option>
-                                                <option value="inside_view">Inside View</option>
-                                                <option value="outside_view">Outside View</option>
-                                            </select>`;
-            price_chamber = simple_chamber;
-            document.getElementById("resImg").src = "Assets/Img/chamber.jpg";
-            total();
-            break;
-        case "doublechamber":
-            affichage.innerHTML = `<label class="form-label">Bed Type</label>
-                                            <select class="form-select" name="bed" onchange="bedType()" id="bed" required>
-                                                <option value="">Choose...</option>
-                                                <option value="doublebed">Double Bed</option>
-                                                <option value="simplebed">2 Simple Beds</option>
-                                            </select>`;
-            price_chamber = double_chamber;
-            document.getElementById("resImg").src = "Assets/Img/double.jpg";
+
+let i = 1;
+extra.addEventListener('click', function () {
+    document.getElementById('pic').innerHTML = `
+    <img src="Assets/Img/double.jpg" class="img-fluid img-thumbnail" alt="" id="resImg">
+    <div class="input-group-append text-center m-1">
+        <label id="description" class="m-2 fs-4 text-center">Chambre Double/Simple</label>
+    </div>
+    <div class="text-center" style="color: blue;" name="price" id="price">
+    </div>
+    `;
+})
+extra.addEventListener('click', function () {
+    n = extra_chamber.value
+    chamber_add.innerHTML = ``
+    for (i = 1; i <= n; i++) {
+
+        chamber_add.innerHTML += `
+            <div class="col-12 mt-3" id="title-room">
+                <center>
+                <hr>Chamber Type N°${i}
+                    
+                </center>
+            </div>
+            <div id="chamber${i}" class="col-sm-4">
+
+                <select class="browser-default custom-select mb-4 " id="room${i}" name="room[${i}][Roomtype]" >
+                    <option value="" disabled="" selected="">Room</option>
+                    <option value="single room">single room</option>
+                    <option value="double room">double room</option>
+                </select>
+            </div>
+
+            <!-- Bed Type -->
+
+            <div id="bed-type${i}" class="col-sm-4"></div>
+
+            <!-- View Type -->
+
+            <div id="view-type${i}" class="col-sm-4"></div>
+
+            <!-- pension -->
+
+            <div class="col-12 mt-2" id="title-pension">
+                <center>Pension N°${i}
+                    
+                </center>
+            </div>
+            <div class="col-12" id="pension${i}"><select class="form-control " name="pension[${i}][idpension]">
+                    <option value="" id="pension${i}" disabled="" selected="">Select type of Pension</option>
+                    <option value="17">Complete</option>
+                    <option value="18">Breakfast / Lunch</option>
+                    <option value="19">Breakfast / Dinner</option>
+                    <option value="20">without</option>
+                </select>
+            </div>
+
+    `
+    }
+
+})
+
+function pick_good() {
+
+    var property = document.getElementById('bien').value;
+    console.log(property);
+
+    switch (property) {
+        case "bungalow":
+            document.getElementById("resImg").src = "Assets/Img/bungalow.jpg";
+            price_chamber = bungalow_price;
             total();
             break;
         case "appartment":
-            price_chamber = appartment_price;
             document.getElementById("resImg").src = "Assets/Img/appartment.jpg";
-            affichage.innerHTML = " ";
-            total();
-            break;
-        case "bungalow":
-            price_chamber = bungalow_price;
-            affichage.innerHTML = " ";
-            document.getElementById("resImg").src = "Assets/Img/bungalow.jpg";
-            total();
-            break;
-        case "empty":
-            affichage.innerHTML = ` `;
-            total();
-            break;
-        default:
-            price_chamber = 0;
-            affichage.innerHTML = " ";
-            total();
-            break;
-    }
-}
-
-var price_view = 0;
-
-function view_type_func() {
-    var view_type = document.getElementById("view_t").value;
-    console.log(view_type);
-    switch (view_type) {
-        case "inside_view":
-            price_view = 0;
-            total();
-            break;
-        case "outside_view":
-            price_view = 300;
+            price_chamber = appartment_price;
             total();
             break;
         default:
             break;
     }
-    console.log(price_view);
+
 }
 
-function bedType() {
-    var bed_type = document.getElementById("bed").value;
-    var double_type_v = document.getElementById("double_type");
-    console.log(bed_type);
-    switch (bed_type) {
-        case "simplebed":
-            double_type_v.innerHTML = `<label class="form-label">View Type</label>
-            <select  onchange="view_type_func()" name="view" class="form-select" id="view_t" required>
-                <option value="">Select</option>
-                <option value="inside_view">Inside View</option>
-            </select>`;
-            total();
-            break;
-        case "doublebed":
-            double_type_v.innerHTML = `<label class="form-label">View Type</label>
-            <select  onchange="view_type_func()" name="view" class="form-select" id="view_t" required>
-                <option value="">Select</option>
-                <option value="inside_view">Inside View</option>
-                <option value="outside_view">Outside View</option>
-            </select>`;
-            total();
-            break;
-        default:
-            double_type_v.innerHTML = ` `;
-            total();
-            break;
+/* Room Type */
+document.addEventListener('change', (e) => {
+    for (let j = 1; j <= i; j++) {
+        if (e.target.id == `room${j}` && e.target.value == 'double room') {
+            document.getElementById(`view-type${j}`).innerHTML = ``
+            document.getElementById(`bed-type${j}`).innerHTML = `<div >
+            <select required id="bed-type${j}" class="browser-default custom-select mb-4 dom" id="select" name="room[${j}][bedtype]">
+            <option value="" disabled="" selected="">Bed</option>
+            <option value="double bed">Double Bed</option>
+            <option value="2 Single Beds">2 Single Beds</option>
+            </select>
+            </div>`
+
+        } else if (e.target.id == `room${j}` && e.target.value == 'single room') {
+            document.getElementById(`bed-type${j}`).innerHTML = ``
+            document.getElementById(`view-type${j}`).innerHTML = `<div >
+            <select required class="browser-default custom-select mb-4 dom" id="select" name="room[${j}][viewtype]">
+            <option value="" disabled="" selected="">View</option>
+            <option value="interior view">interior view</option>
+            <option value="exterior view">exterior view</option>
+            </select>
+            </div>`
+        }
+    }
+})
+document.addEventListener('change', (e) => {
+    for (let j = 1; j <= i; j++) {
+        if (e.target.id == `bed-type${j}` && e.target.value == 'double bed') {
+            document.getElementById(`view-type${j}`).innerHTML = `<div >
+            <select required class="browser-default custom-select mb-4 dom" id="select" name="room[${j}][viewtype]">
+            <option value="" disabled="" selected="">View</option>
+            <option value="interior view">interior view</option>
+            <option value="exterior view">exterior view</option>
+            </select>
+            </div>`
+        } else if (e.target.id == `bed-type${j}` && e.target.value == '2 Single Beds') {
+            document.getElementById(`view-type${j}`).innerHTML = `<div >
+        <select  class="browser-default custom-select mb-4 dom" id="select" name="room[${j}][viewtype]">
+        
+        <option value="interior view">interior view</option>
+        </select>
+        </div>`
+        }
+    }
+})
+/* list for age of child */
+function children_func() {
+    const nbr_child = document.getElementById('nbr_child').value;
+    document.querySelector('#add_child').innerHTML = ``;
+    for (i = 1; i <= nbr_child; i++) {
+        document.querySelector('#add_child').innerHTML += ` 
+        <div class=" col-12 child-offer">
+            
+                <select required class="col-sm-5 m-3 select-age browser-default custom-select " name="" id="child-age-` + i + `"  >
+                    <option value="" disabled="" selected="">child age ` + i + `</option>
+                    <option value="2"> age<= 2 </option> 
+                    <option value="2.14"> 2 < age < 14 </option> 
+                    <option value="14">age => 14 </option>
+                </select>
+            
+            
+                <select id = "select-offer` + i + `"  class="col-sm-5 m-3 select-offer` + i + ` browser-default custom-select " name="child[${i}][idofferschild]">        
+                </select>
+            
+        </div>`
+
+
     }
 }
 
 
-function pension_func() {
-    switch (pension_val.value) {
-        case "nopension":
-            price_pension = 0;
-            total();
-            break;
-        case "allpension":
-            price_pension = price_pension_full;
-            total();
-            break;
-        case "breakfastandlunch":
-            price_pension = (price_pension_full / 2);
-            total();
-            break;
-        case "breakfastanddinner":
-            price_pension = (price_pension_full / 2);
-            total();
-            break;
-        default:
-            price_pension = 0;
-            total();
-            break;
+document.addEventListener("change", function (e) {
+    const nbchild = document.getElementById('nbr_child').value;
+
+    for (let i = 1; i <= nbchild; i++) {
+        const idenf = document.getElementById(`child-age-${i}`);
+        if (e.target.id == `child-age-${i}` && e.target.value == "2") {
+            document.querySelector(`#select-offer${i}`).innerHTML = ``
+            document.querySelector(`#select-offer${i}`).innerHTML += `
+        
+        <option value="12">no supplement child bed 0 DH</option> 
+        <option value="13">child bed supplement 25% single room</option>`
+
+
+        } else if (e.target.id == `child-age-${i}` && e.target.value == "2.14") {
+            document.querySelector(`#select-offer${i}`).innerHTML = ``
+            document.querySelector(`#select-offer${i}`).innerHTML += `
+        <option value="14">add 50% single room</option> `
+        } else if (e.target.id == `child-age-${i}` && e.target.value == "14") {
+            document.querySelector(`#select-offer${i}`).innerHTML = ``
+            document.querySelector(`#select-offer${i}`).innerHTML += `
+        <option value="15">add a single room</option>
+        <option value="16">add 70% single room + bed</option>
+        `
+        }
+
+
     }
-}
+})
 
-function check_add_children() {
-    extra = document.getElementById("extra");
-    if (with_child.checked) {
-        plus_children.innerHTML = `
-        <hr class="my-4">
-        <div class="row"> 
-            <div class="col-md-6">
-                <label class="form_label">Under 2 Years old? </label>
-                <input type="number" class="form-control" oninput="" name="undertwo_kids" id="undertwo_kids" placeholder="< 2YO">
-            </div>
-            <div  class="col-md-6" id="">
-                <label class="form-label">Choose</label>
-                    <select class="form-select" onchange="func_extras_b()" name="undertwo_kids_add" id="undertwo_kids_add" required>
-                        <option value="Nobed">No bed</option>
-                        <option value="Extrabed">Extra Bed</option>
-                    </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <label class="form_label">Between 3 and 14? </label>
-                <input type="number" class="form-control" oninput="" name="twoten_kids" id="twoten_kids" placeholder=" 2 < < 14 ">
-            </div>
-            <div  class="col-md-6">
-                <label class="form-label">Choose</label>
-                    <select class="form-select" id="twoten_kids_add" name="twoten_kids_add" onchange="func_extras_m()" required>
-                        <option value="Null"></option>
-                        <option value="simple_chamber">Simple Chamber</option>
-                    </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <label class="form_label">Older than 14 ?</label>
-                <input type="number" class="form-control" oninput="" name="older_kids" id="older_kids" placeholder=" > 14 ">
-            </div>
-            <div  class="col-md-6">
-                <label class="form-label">Choose</label>
-                    <select class="form-select" id="adults" name="adults" onchange="func_extras_a()" required>
-                        <option value="simplechamber">Simple Chamber</option>
-                        <option value="plusbed">Extra Bed</option>
-                    </select>
-            </div>
-        </div>
-        `;
-    } else {
-        plus_children.innerHTML = " ";
-    }
-}
-
-var price_extra_b = 0;
-
-function func_extras_b() {
-    var el = document.getElementById("undertwo_kids_add");
-    switch (el.value) {
-        case "Nobed":
-            price_extra_b = 0;
-            total();
-            break;
-        case "Extrabed":
-            price_extra_b = 400;
-            total();
-            break;
-        default:
-            price_extra_b = 0;
-            break;
-    }
-}
-
-var price_extra_m = 0;
-
-function func_extras_m() {
-    var m = document.getElementById("twoten_kids_add");
-    switch (m.value) {
-        case "NULL":
-            price_extra_m = 0;
-            total()
-            break;
-        case "simple_chamber":
-            price_extra_m = 750;
-            total()
-            break;
-        default:
-            break;
-    }
-    console.log(price_extra_m);
-}
-
-var price_extra_a = 0;
-
-function func_extras_a() {
-    var adult = document.getElementById("adults");
-    switch (adult.value) {
-        case "simplechamber":
-            price_extra_a = 0;
-            total()
-            break;
-        case "plusbed":
-            price_extra_a = ((simple_chamber * 70) / 100);
-            total()
-            break;
-        default:
-            break;
-    }
-}
-
+var price_view = 1;
 
 function total() {
     var diffDays = 1;
@@ -262,14 +212,15 @@ function total() {
     var date1 = new Date(d_in);
     var date2 = new Date(d_out);
 
-    var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    var oneDay = 24 * 60 * 60 * 1000; 
     var diffDays = Math.abs((date1.getTime() - date2.getTime()) / (oneDay));
 
     
-    tarifs = ((price_chamber + price_view + price_pension) * diffDays + price_extra_m + price_extra_b + price_extra_a);
+    console.log(diffDays);
+    console.log(price_chamber);
+    tarifs = (price_chamber * diffDays);
     price.innerHTML = "Total Price: " + tarifs + "DH";
     price.style.alignContent = "center";
     x = tarifs;
     document.getElementById("hidden_price").value = tarifs;
 }
-

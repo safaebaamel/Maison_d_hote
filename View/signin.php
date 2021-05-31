@@ -1,10 +1,9 @@
-<?php 
-
-    include '../Controllers/UserController.php';
-    $createuser = new userController;
-    $createuser->auth();
-
-?>
+<?php
+session_start();
+// if(isset ($_SESSION['email'])  ) {
+//   header("location:index.php"); 
+// }
+ ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,7 +14,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <title>Sign Up</title>
+    <title>Sign IN</title>
     <link rel="stylesheet" href="Assets/Style/signup.css">
   </head>
   <body>
@@ -56,14 +55,14 @@
                 <div class="col-lg-7 px-5 pt-5">
                     <h1 class="font-weight-bold py-3">Log In</h1>
                     <h4>Sign In to your account</h4>
-                    <form method="POST">
+                    <form method="POST" action="../controller/ControlerUsers.php">
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <input type="email" name="Email"placeholder="Email Address" class="form-control my-3 p-3">
+                                <input type="email" name="email" placeholder="Email Address" class="form-control my-3 p-3">
                             </div>
                             <div class="form-row">
                                 <div class="col-lg-7">
-                                    <input type="password" name="Password" placeholder="********" class="form-control my-3 p-3">
+                                    <input type="password" name="password" placeholder="********" class="form-control my-3 p-3">
                                 </div>
                             </div>
                             <div class="form-row">

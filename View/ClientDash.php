@@ -1,14 +1,5 @@
 <?php 
 
-  include '../Controllers/ReservationController.php';
-	if(isset($_POST['find'])){
-		$data = new ReservationController();
-		$res = $data->findReservations();
-	}else{
-		$data = new ReservationController();
-		$res = $data->getAllReservations();
-	}
-  // echo $_SESSION['Email'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -66,7 +57,7 @@
           </ul>
       </nav>
 
-      <!-- <div class="container m-4">
+      <div class="container m-4">
         <div class="row my-4">
           <div class="col-md-10 mx-auto">
             <div class="card">
@@ -84,8 +75,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($res as $res):?>
-                    <tr>
+                    <!-- <?php foreach($res as $res):?> -->
+                    <!-- <tr>
                       <th scope="row"><?php echo $res['date_entrer']?></th>
                       <td><?php echo $res['date_sortie'];?></td>
                       <td><?php echo $res['chambre_type'];?></td>
@@ -94,7 +85,7 @@
                       <td><?php echo $res['enfants'];?></td>
                       <td><?php echo $res['tarifs'];?></td>
                         
-                    </tr>
+                    </tr> -->
 
                     <?php endforeach;?>
                   </tbody>
@@ -103,7 +94,7 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
       <!-- Bootstrap core JavaScript
     ================================================== -->
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

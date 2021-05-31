@@ -1,8 +1,8 @@
-<?php  
+<?php // include '..model/connection.php';  
 session_start();
 
 if($_SERVER['REQUEST_METHOD']=='POST') {
-  include "../model/UsersModel.php";
+  include "../model/modelUsers.php";
 
   $posts=new modelUsers();
 

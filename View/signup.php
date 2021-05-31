@@ -1,10 +1,10 @@
-<?php 
+<?php
 
-    include '../Controllers/UserController.php';
-    if (isset($_POST['signup'])) {
-        $createuser = new userController;
-        $createuser->register();
-    }
+session_start();
+if(isset ($_SESSION['email'])  ) {
+  header("location:index.php"); 
+}
+include "../model/modelUsers.php";
 
 ?>
 <!doctype html>
@@ -63,13 +63,13 @@
                     </div>
                     <h1 class="font-weight-bold py-3">Sign Up</h1>
                     <h4>Welcome Among Us</h4>
-                    <form method="POST">
+                    <form method="POST" action="../controller/ControlerUsers.php">
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <input type="text" placeholder="First Name" name="name" class="form-control my-3 p-3">
+                                <input type="text" placeholder="First Name" name="Fname" class="form-control my-3 p-3">
                             </div>
                             <div class="col-lg-7">
-                                <input type="text" placeholder="Last Name" name="lname" class="form-control my-3 p-3">
+                                <input type="text" placeholder="Last Name" name="Lname" class="form-control my-3 p-3">
                             </div>
                             <div class="form-row">
                                 <div class="col-lg-7">
@@ -81,7 +81,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="col-lg-7">
-                                    <button type="submit" name="signup" class="btn1 mt-3 mb-4">Sign Up</button>
+                                    <button type="submit" name="register" class="btn1 mt-3 mb-4">Sign Up</button>
                                 </div>
                             </div>
                             <a href="#">Forgot password?</a>
