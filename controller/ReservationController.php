@@ -17,7 +17,7 @@ if(isset($_POST['reserver'])) {
     $reservation->InsertBA($_POST['bientype'],$id_r);
     $nbrOfseconds   =   $c_out - $c_in;
     $nbrOfDays      =   $nbrOfseconds/(60*60*24) ;
-    $finalPrice     =   $reservation->bill($nbrOfDays,$id_r);
+    $finalPrice     =   $reservation->tarifs($nbrOfDays,$id_r);
 
     header('location:../view/reservation.php');
 }

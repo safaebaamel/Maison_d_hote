@@ -55,16 +55,13 @@ class ReservationModel extends connection{
         }
     }
 
-    public function bill($nbrOfDays,$idreservation){
-        /* Calculate Total Price  */
+    public function tarifs($nbrOfDays,$idreservation){
         $sqlCalc    =   "SELECT SUM(b.price) as `total` FROM bien as b , results as r WHERE b.idProperty = r.idProperty AND r.idReservation =?";
         $stmtCalc   =   $this->con->prepare($sqlCalc);
         $stmtCalc->execute([$idreservation]);
         $row   = $stmtCalc->fetch(PDO::FETCH_ASSOC);
-        /*  */
         $totalPrice =   $row['total'];
         $finalPrice = $totalPrice * $nbrOfDays;
-        /* Insert Totale Price In Bill Tabke */
         $sqlinsert  =   "INSERT INTO `tarifs`(`idReservation`, `totalPrice`, `nbrOfDays`, `finalPrice`) VALUES (?,?,?,?)";
         $stmtinsert =   $this->con->prepare($sqlinsert);
         $stmtinsert->execute([$idreservation,$totalPrice,$nbrOfDays,$finalPrice]);
