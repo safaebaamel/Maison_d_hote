@@ -15,9 +15,12 @@ class ReservationController{
 
     public function addReservation(){
 		if(isset($_POST['book'])){
-			$data = array(
-				'date_entrer' => $_POST['Date_entree'],
-				'date_sortie' => $_POST['Date_sortie'],
+			$data1 = array(
+				// 'clientId_fk' => $_SESSION['userId'] ?? ' ',
+				'checkIn_date' => $_POST['Date_entree'],
+				'checkOut_date' => $_POST['Date_sortie'],
+			);
+			$data2 = array(
 				'chambre_type' => $_POST['reservation'],
 				'chambre_view' => $_POST['view'] ?? ' ',
 				'pension' => $_POST['id_pension'],
@@ -29,7 +32,7 @@ class ReservationController{
 				'age_ado' => $_POST['older_kids'] ?? ' ',
 				'tarifs' =>$_POST['hidden_price']
 			);
-			$result = Reservation::add($data);
+			$result = Reservation::add($data1);
 			if($result === 'ok'){
 				Session::set('success','Reservation Ajouté');
 				Redirect::to('ClientDash.php');
@@ -38,33 +41,6 @@ class ReservationController{
 			}
 		}
 	}
-
-    public function updateReservation(){
-        if(isset($_POST['submit'])){
-            $data = array(
-				'date_entrer' => $_POST['Date_entree'],
-				'date_sortie' => $_POST['Date_sortie'],
-				'chambre_type' => $_POST['reservation'],
-				'chambre_view' => $_POST['view'] ?? ' ',
-				'pension' => $_POST['id_pension'],
-				'enfants' => $_POST['child'] ?? ' ',
-				// 'chambre_plus_type' => $_POST['twoten_kids_add'],
-				// 'lit_plus-type' => $_POST['undertwo_kids_add'],
-				// 'age_bebe' => $_POST['undertwo_kids'],
-				// 'age_enfant' => $_POST['undertwo_kids'],
-				// 'age_ado' => $_POST['older_kids'],
-				'tarifs' =>$_POST['hidden_price']
-			);
-            $result = Reservation::update($data);
-            if($result === 'ok'){
-                Session::set('info', 'Reservation updated!');
-                Redirect::to('home');
-            }
-            else{
-                echo $result;
-            }
-        }
-    }
 
     public function deleteReservation(){
         if(isset($_POST['id'])){

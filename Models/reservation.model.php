@@ -1,11 +1,11 @@
 <?php 
-
+session_start();
 include '../DataBase/db.php';
 
 class Reservation {
 
 	static public function getAll(){
-		$stmt = DB::connect()->prepare('SELECT * FROM reservation');
+		$stmt = DB::connect()->prepare('SELECT * FROM reservations');
 		$stmt->execute();
 		return $stmt->fetchAll();
 		$stmt->close();
@@ -14,7 +14,7 @@ class Reservation {
 
 	static public function getReservation($data){
 		try{
-			$query = 'SELECT * FROM reservation WHERE id=:id';
+			$query = 'SELECT * FROM reservations WHERE id=:id';
 			$stmt = DB::connect()->prepare($query);
 			$stmt->execute(array(":id" => $_SESSION['id']));
 			$employe = $stmt->fetch(PDO::FETCH_OBJ);
@@ -24,51 +24,13 @@ class Reservation {
 		}
 	}
 
-	static public function add($data){
-		$stmt = DB::connect()->prepare('INSERT INTO reservation (date_entrer,date_sortie,chambre_type,chambre_view,pension,enfants,chambre_plus_type,lit_plus_type,age_bebe,age_enfant,age_ado,tarifs)
-			VALUES (:date_entrer,:date_sortie,:chambre_type,:chambre_view,:pension,:enfants,:chambre_plus_type,:lit_plus_type,:age_bebe,:age_enfant,:age_ado,:tarifs)');
-		$stmt->bindParam(':date_entrer',$data['date_entrer']);
-		$stmt->bindParam(':date_sortie',$data['date_sortie']);
-		$stmt->bindParam(':chambre_type',$data['chambre_type']);
-		$stmt->bindParam(':chambre_view',$data['chambre_view']);
-		$stmt->bindParam(':pension',$data['pension']);
-		$stmt->bindParam(':enfants',$data['enfants']);
-		$stmt->bindParam(':chambre_plus_type',$data['chambre_plus_type']);
-		$stmt->bindParam(':lit_plus_type',$data['lit_plus_type']);
-		$stmt->bindParam(':age_bebe',$data['age_bebe']);
-		$stmt->bindParam(':age_enfant',$data['age_enfant']);
-		$stmt->bindParam(':age_ado',$data['age_ado']);
-		$stmt->bindParam(':tarifs',$data['tarifs']);
+	static public function add($data1){
+		$stmt = DB::connect()->prepare('INSERT INTO `reservations` (`checkIn_date`, `checkOut_date`) VALUES (:checkIn_date, :checkOut_date);');
+		// $stmt->bindParam(':clientId_fk',$data1['clientId_fk']);
+		$stmt->bindParam(':checkIn_date',$data1['checkIn_date']);
+		$stmt->bindParam(':checkOut_date',$data1['checkOut_date']);
 
-		if($stmt->execute()){
-			return 'ok';
-		}else{
-			return 'error';
-		}
-		$stmt->close();
-		$stmt = null;
-	}
-	static public function update($data){
-		$stmt = DB::connect()->prepare('UPDATE reservation SET date_entrer= :date_entrer,date_sortie=:date_sortie,chambre_type=:chambre_type,pension=:pension,enfants=:enfants,chambre_plus_type=:chambre_plus_type,lit_plus_type=:lit_plus_type,age_bebe=:age_bebe, age_enfants=:age_enfants, age_ado=:age_ado, tarifs=:tarifs WHERE id=:id');
-		$stmt->bindParam(':date_entrer',$data['date_entrer']);
-		$stmt->bindParam(':date_sortie',$data['date_sortie']);
-		$stmt->bindParam(':chambre_type',$data['chambre_type']);
-		$stmt->bindParam(':pension',$data['pension']);
-		$stmt->bindParam(':enfants',$data['enfants']);
-		$stmt->bindParam(':chambre_plus_type',$data['chambre_plus_type']);
-		$stmt->bindParam(':lit_plus_type',$data['lit_plus_type']);
-		$stmt->bindParam(':age_bebe',$data['age_bebe']);
-		$stmt->bindParam(':age_enfant',$data['age_enfant']);
-		$stmt->bindParam(':age_ado',$data['age_ado']);
-		$stmt->bindParam(':tarifs',$data['tarifs']);
-
-		if($stmt->execute()){
-			return 'ok';
-		}else{
-			return 'error';
-		}
-		$stmt->close();
-		$stmt = null;
+		$stmt->execute();
 	}
 
 	static public function delete($data){

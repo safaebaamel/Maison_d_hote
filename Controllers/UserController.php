@@ -1,5 +1,6 @@
 <?php
 
+    session_start();
     include_once '../Models/user.model.php';
     include_once '../Classes/Session.class.php';
     include_once '../Classes/Redirect.class.php';
@@ -8,10 +9,10 @@
         public function register() {
             if (isset($_POST['signup'])) {
                 $data = array(
-                    'name' => $_POST['name'],
-                    'lname' => $_POST['lname'], 
+                    'firstName' => $_POST['name'],
+                    'lastName' => $_POST['lname'], 
                     'email' => $_POST['email'],
-                    'password' => $_POST['password'],
+                    'loginPassword' => $_POST['password'],
                 );
                 $result = User::createUser($data);
                 if ($result == 'ok') {
@@ -25,12 +26,14 @@
 
         public function auth(){
             if(isset($_POST['login'])){
-                $data['Email'] = $_POST['Email'];
-                $data['Password'] = $_POST['Password'];
-                $result = User::login($data);
-                if($result->Email === $_POST['Email'] && $result->Password == $_POST['Password']){
+                $email = $_POST['Email'];
+                $password = $_POST['Password'];
+                $result = User::login($email, $password);
+                // var_dump($result['email']);
+                // var_dump( $result['userId']);
+                if($result['email'] === $_POST['Email'] && $result['loginPassword'] == $_POST['Password']){
                     $_SESSION['logged'] = true;
-                    $_SESSION['email'] = $data['email'];                    
+                    $_SESSION['userId'] = 3;
                     Redirect::to('ClientDash.php');
                     echo $result->Email;
                 }else{

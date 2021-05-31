@@ -66,7 +66,7 @@
           </ul>
       </nav>
 
-      <div class="container m-4">
+      <!-- <div class="container m-4">
         <div class="row my-4">
           <div class="col-md-10 mx-auto">
             <div class="card">
@@ -103,7 +103,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Bootstrap core JavaScript
     ================================================== -->
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
