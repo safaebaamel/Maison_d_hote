@@ -75,19 +75,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <!-- <?php foreach($res as $res):?> -->
-                    <!-- <tr>
-                      <th scope="row"><?php echo $res['date_entrer']?></th>
-                      <td><?php echo $res['date_sortie'];?></td>
-                      <td><?php echo $res['chambre_type'];?></td>
-                      <td><?php echo $res['chambre_view'];?></td>
-                      <td><?php echo $res['pension'];?></td>
-                      <td><?php echo $res['enfants'];?></td>
-                      <td><?php echo $res['tarifs'];?></td>
-                        
-                    </tr> -->
-
-                    <?php endforeach;?>
+                    <tr>
+                    </tr>
                   </tbody>
                 </table>
               </div>

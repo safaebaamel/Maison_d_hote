@@ -13,8 +13,8 @@ class ReservationModel extends connection {
         $sql    =   "INSERT INTO reservation(`idCustomer`, `checkIn`, `chekOut`) VALUES (?,?,?)";
         $stmt   =   $this->con->prepare($sql);
         $stmt->execute([$idCustomer,$checkin,$checkout]);
-         $idreservation  =   $this->con->lastInsertId();
-         return $idreservation ;
+        $idreservation  =   $this->con->lastInsertId();
+        return $idreservation ;
     }
 
     public function reserve_room($array,$idreservation){

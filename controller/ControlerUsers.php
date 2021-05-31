@@ -2,7 +2,7 @@
 session_start();
 
 if($_SERVER['REQUEST_METHOD']=='POST') {
-  include "../model/UserModel.php";
+  include "../model/modelUsers.php";
 
   $posts=new modelUsers();
 
