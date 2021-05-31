@@ -33,10 +33,4 @@ class modelUsers {
         $row            =   $selectUser->fetch(PDO::FETCH_ASSOC);
         return $row;
     }
-    public function displayDataWithId($id)
-		{
-		    $query = "SELECT * FROM reservation WHERE idReservation = '$id'";
-		    $result = $this->conn->prepare($query);
-            return ($result);
-		}
 }

@@ -42,7 +42,6 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
       header("location: ../view/signin.php");
     }
   }
-
 }else {
   echo 'Error';
 }
