@@ -4,7 +4,7 @@ session_start();
 if(isset ($_SESSION['email'])  ) {
   header("location:index.php"); 
 }
-include "../model/modelUsers.php";
+include "../model/UserModel.php";
 
 ?>
 <!doctype html>
