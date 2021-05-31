@@ -1,6 +1,6 @@
 <?php
 include "connection.php";   
-class ReservationModel extends connection{
+class ReservationModel extends connection {
 
     private $con;
 
@@ -62,9 +62,9 @@ class ReservationModel extends connection{
         $row   = $stmtCalc->fetch(PDO::FETCH_ASSOC);
         $totalPrice =   $row['total'];
         $finalPrice = $totalPrice * $nbrOfDays;
-        $sqlinsert  =   "INSERT INTO `tarifs`(`idReservation`, `totalPrice`, `nbrOfDays`, `finalPrice`) VALUES (?,?,?,?)";
+        $sqlinsert  =   "INSERT INTO `tarifs` (`idReservation`,`finalPrice`) VALUES (?,?)";
         $stmtinsert =   $this->con->prepare($sqlinsert);
-        $stmtinsert->execute([$idreservation,$totalPrice,$nbrOfDays,$finalPrice]);
+        $stmtinsert->execute([$idreservation ,$finalPrice]);
         return $finalPrice;
     }
 }
