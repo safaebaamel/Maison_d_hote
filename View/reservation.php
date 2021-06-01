@@ -44,6 +44,7 @@
         </div>
     </nav>
     <div class="bg-light">
+        <div class="alert alert-primary text-center" id="warning" role="alert"></div>
         <div class="container">
             <div class="row mt-4">
                 <div class="col-sm-4 order-md-2 mb-4">
@@ -80,6 +81,8 @@
                                 <label>Our Luxury Goods!</label>
                                 <select required id="bien" onchange="pick_good()" name="bientype[1][type]">
                                     <option value="" disabled="" selected="">Good</option>
+                                    <option value="schamber">Simple Chamber</option>
+                                    <option value="dchamber">Double Chamber</option>
                                     <option value="bungalow">Bungalow</option>
                                     <option value="appartment">Appartment</option>
                                 </select>

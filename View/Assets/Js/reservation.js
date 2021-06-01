@@ -86,13 +86,27 @@ function pick_good() {
     console.log(property);
 
     switch (property) {
+        case "dchamber":
+            document.getElementById("resImg").src = "Assets/Img/double.jpg";
+            document.getElementById('warning').innerHTML = "Please choose How many Rooms!";
+            price_chamber = simple_chamber;
+            total();
+            break;
+        case "schamber":
+            document.getElementById("resImg").src = "Assets/Img/double.jpg";
+            document.getElementById('warning').innerHTML = "Please choose How many Rooms!";
+            price_chamber = simple_chamber;
+            total();
+            break;
         case "bungalow":
             document.getElementById("resImg").src = "Assets/Img/bungalow.jpg";
+            document.getElementById('warning').innerHTML = ' ';
             price_chamber = bungalow_price;
             total();
             break;
         case "appartment":
             document.getElementById("resImg").src = "Assets/Img/appartment.jpg";
+            document.getElementById('warning').innerHTML = ' ';
             price_chamber = appartment_price;
             total();
             break;
