@@ -17,68 +17,8 @@ var appartment_price = 200;
 var bungalow_price = 4500;
 var outside_view = 400;
 var tarifs = 0;
+let i = 0;
 
-
-let i = 1;
-extra.addEventListener('click', function () {
-    document.getElementById('pic').innerHTML = `
-    <img src="Assets/Img/double.jpg" class="img-fluid img-thumbnail" alt="" id="resImg">
-    <div class="input-group-append text-center m-1">
-        <label id="description" class="m-2 fs-4 text-center">Chambre Double/Simple</label>
-    </div>
-    <div class="text-center" style="color: blue;" name="price" id="price">
-    </div>
-    `;
-})
-extra.addEventListener('click', function () {
-    n = extra_chamber.value
-    chamber_add.innerHTML = ``
-    for (i = 1; i <= n; i++) {
-
-        chamber_add.innerHTML += `
-            <div class="col-12 mt-3" id="title-room">
-                <center>
-                <hr>Chamber Type N°${i}
-                    
-                </center>
-            </div>
-            <div id="chamber${i}" class="col-sm-4">
-
-                <select class="browser-default custom-select mb-4 " id="room${i}" name="room[${i}][Roomtype]" >
-                    <option value="" disabled="" selected="">Room</option>
-                    <option value="single room">single room</option>
-                    <option value="double room">double room</option>
-                </select>
-            </div>
-
-            <!-- Bed Type -->
-
-            <div id="bed-type${i}" class="col-sm-4"></div>
-
-            <!-- View Type -->
-
-            <div id="view-type${i}" class="col-sm-4"></div>
-
-            <!-- pension -->
-
-            <div class="col-12 mt-2" id="title-pension">
-                <center>Pension N°${i}
-                    
-                </center>
-            </div>
-            <div class="col-12" id="pension${i}"><select class="form-control " name="pension[${i}][idpension]">
-                    <option value="" id="pension${i}" disabled="" selected="">Select type of Pension</option>
-                    <option value="17">Complete</option>
-                    <option value="18">Breakfast / Lunch</option>
-                    <option value="19">Breakfast / Dinner</option>
-                    <option value="20">without</option>
-                </select>
-            </div>
-
-    `
-    }
-
-})
 
 function pick_good() {
 
@@ -116,44 +56,83 @@ function pick_good() {
 
 }
 
-/* Room Type */
+extra.addEventListener('click', function () {
+    document.getElementById('pic').innerHTML = `
+    <img src="Assets/Img/double.jpg" class="img-fluid img-thumbnail" alt="" id="resImg">
+    <div class="input-group-append text-center m-1">
+        <label id="description" class="m-2 fs-4 text-center">Chambre Double/Simple</label>
+    </div>
+    <div class="text-center" style="color: blue;" name="price" id="price">
+    </div>
+    `;
+});
+
+extra.addEventListener('click', function () {
+    n = extra_chamber.value
+    chamber_add.innerHTML = ``
+    for (i = 1; i <= n; i++) {
+        chamber_add.innerHTML += `
+            <div>
+                <hr class="text-center">Chamber Type N°${i}
+            </div>
+            <div id="chamber${i}" class="col-4">
+                <select class="browser-default custom-select mb-4" id="room${i}" name="room[${i}][j]" >
+                    <option value="" disabled="" selected="">Room</option>
+                    <option value="single room">single room</option>
+                    <option value="double room">double room</option>
+                </select>
+            </div>
+            <div id="bed-type${i}" class="col-sm-4"></div>
+            <div id="view-type${i}" class="col-sm-4"></div>
+            <div class="col-12 mt-2" id="title-pension"> Pension N°${i} </div>
+            <div class="col-12" id="pension${i}">
+            <select class="form-control " name="pension[${i}][k]">
+                    <option value="" id="pension${i}" disabled="" selected="">Select type of Pension</option>
+                    <option value="17">Complete</option>
+                    <option value="18">Breakfast&Lunch</option>
+                    <option value="19">Breakfast&Diner</option>
+                    <option value="20">None</option>
+                </select>
+            </div>
+    `
+    }
+})
+
 document.addEventListener('change', (e) => {
-    for (let j = 1; j <= i; j++) {
-        if (e.target.id == `room${j}` && e.target.value == 'double room') {
-            document.getElementById(`view-type${j}`).innerHTML = ``
-            document.getElementById(`bed-type${j}`).innerHTML = `<div >
-            <select required id="bed-type${j}" class="browser-default custom-select mb-4 dom" id="select" name="room[${j}][bedtype]">
-            <option value="" disabled="" selected="">Bed</option>
+    for (let m = 1; m <= i; m++) {
+        if (e.target.id == `room${m}` && e.target.value == 'single room') {
+        document.getElementById(`bed-type${m}`).innerHTML = ``;
+        document.getElementById(`view-type${m}`).innerHTML = `<div >
+        <select required class="custom-select mb-4" id="select" name="room[${m}][v_type]">
+        <option disabled></option>
+        <option value="interior view">interior view</option>
+        <option value="exterior view">exterior view</option>
+        </select>
+        </div>`;
+    } else if (e.target.id == `room${m}` && e.target.value == 'double room') {
+            document.getElementById(`view-type${m}`).innerHTML = ``;
+            document.getElementById(`bed-type${m}`).innerHTML = `<div >
+            <select required id="bed-type${m}" class="custom-select mb-4" id="select" name="room[${m}][b]">
+            <option disabled></option>
             <option value="double bed">Double Bed</option>
             <option value="2 Single Beds">2 Single Beds</option>
             </select>
-            </div>`
-
-        } else if (e.target.id == `room${j}` && e.target.value == 'single room') {
-            document.getElementById(`bed-type${j}`).innerHTML = ``
-            document.getElementById(`view-type${j}`).innerHTML = `<div >
-            <select required class="browser-default custom-select mb-4 dom" id="select" name="room[${j}][viewtype]">
-            <option value="" disabled="" selected="">View</option>
-            <option value="interior view">interior view</option>
-            <option value="exterior view">exterior view</option>
-            </select>
-            </div>`
-        }
+            </div>`;
     }
 })
 document.addEventListener('change', (e) => {
     for (let j = 1; j <= i; j++) {
         if (e.target.id == `bed-type${j}` && e.target.value == 'double bed') {
             document.getElementById(`view-type${j}`).innerHTML = `<div >
-            <select required class="browser-default custom-select mb-4 dom" id="select" name="room[${j}][viewtype]">
-            <option value="" disabled="" selected="">View</option>
+            <select required class="custom-select mb-4 dom" id="select" name="room[${j}][v_type]">
+            <option disabled></option>
             <option value="interior view">interior view</option>
             <option value="exterior view">exterior view</option>
             </select>
             </div>`
         } else if (e.target.id == `bed-type${j}` && e.target.value == '2 Single Beds') {
             document.getElementById(`view-type${j}`).innerHTML = `<div >
-        <select  class="browser-default custom-select mb-4 dom" id="select" name="room[${j}][viewtype]">
+        <select  class=" custom-select mb-4 dom" id="select" name="room[${j}][v_type]">
         
         <option value="interior view">interior view</option>
         </select>
@@ -161,7 +140,6 @@ document.addEventListener('change', (e) => {
         }
     }
 })
-/* list for age of child */
 function children_func() {
     const nbr_child = document.getElementById('nbr_child').value;
     document.querySelector('#add_child').innerHTML = ``;
@@ -175,14 +153,10 @@ function children_func() {
                     <option value="2.14"> 2 < age < 14 </option> 
                     <option value="14">age => 14 </option>
                 </select>
-            
-            
-                <select id = "select-offer` + i + `"  class="col-sm-5 m-3 select-offer` + i + ` browser-default custom-select " name="child[${i}][idofferschild]">        
+                <select id = "select-offer` + i + `"  class="col-sm-5 m-3` + i + `custom-select " name="child[${i}][kids]">        
                 </select>
             
-        </div>`
-
-
+        </div>`;
     }
 }
 
@@ -211,8 +185,6 @@ document.addEventListener("change", function (e) {
         <option value="16">add 70% single room + bed</option>
         `
         }
-
-
     }
 })
 

@@ -12,7 +12,7 @@ class ReservationModel extends connection {
     
     public function reserve_room($array,$idreservation){
         foreach($array as $key =>$value){    
-            $sql   =   "INSERT INTO `results`(`idProperty`, `idReservation`) VALUES ((select IdProperty from bien where type = '$value[Roomtype]' and (bedtype= '$value[bedtype]' ?? Null ) and view= '$value[viewtype]' ),?)";
+            $sql   =   "INSERT INTO `results`(`idProperty`, `idReservation`) VALUES ((select IdProperty from bien where type = '$value[j]' and (bedtype= '$value[b]' ?? Null ) and view= '$value[v_type]' ),?)";
             $stmt   =   $this->con->prepare($sql);
             $stmt->execute([$idreservation]); 
         }
@@ -29,7 +29,7 @@ class ReservationModel extends connection {
         foreach($array as $key => $value){
             $sql    =   "INSERT INTO results (`idProperty`, `idReservation`) VALUES (?,?)";
             $stmt   =   $this->con->prepare($sql);
-            $stmt->execute([$value['idpension'],$idreservation]);
+            $stmt->execute([$value['k'],$idreservation]);
         }
     }
 
@@ -51,7 +51,7 @@ class ReservationModel extends connection {
         foreach($array as $key => $value){
             $sql    =   "INSERT INTO results (`idProperty`, `idReservation`) VALUES (?,?)";
             $stmt   =   $this->con->prepare($sql);
-            $stmt->execute([$value['idofferschild'],$idreservation]);
+            $stmt->execute([$value['kids'],$idreservation]);
         }
     }
 
