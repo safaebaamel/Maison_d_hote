@@ -101,15 +101,15 @@ extra.addEventListener('click', function () {
 document.addEventListener('change', (e) => {
     for (let m = 1; m <= i; m++) {
         if (e.target.id == `room${m}` && e.target.value == 'single room') {
-        document.getElementById(`bed-type${m}`).innerHTML = ``;
-        document.getElementById(`view-type${m}`).innerHTML = `<div >
+            document.getElementById(`bed-type${m}`).innerHTML = ``
+            document.getElementById(`view-type${m}`).innerHTML = `<div >
         <select required class="custom-select mb-4" id="select" name="room[${m}][v_type]">
         <option disabled></option>
         <option value="interior view">interior view</option>
         <option value="exterior view">exterior view</option>
         </select>
-        </div>`;
-    } else if (e.target.id == `room${m}` && e.target.value == 'double room') {
+        </div>`
+        } else if (e.target.id == `room${m}` && e.target.value == 'double room') {
             document.getElementById(`view-type${m}`).innerHTML = ``;
             document.getElementById(`bed-type${m}`).innerHTML = `<div >
             <select required id="bed-type${m}" class="custom-select mb-4" id="select" name="room[${m}][b]">
@@ -117,9 +117,10 @@ document.addEventListener('change', (e) => {
             <option value="double bed">Double Bed</option>
             <option value="2 Single Beds">2 Single Beds</option>
             </select>
-            </div>`;
+            </div>`
+        }
     }
-})
+});
 document.addEventListener('change', (e) => {
     for (let j = 1; j <= i; j++) {
         if (e.target.id == `bed-type${j}` && e.target.value == 'double bed') {
@@ -139,7 +140,8 @@ document.addEventListener('change', (e) => {
         </div>`
         }
     }
-})
+});
+
 function children_func() {
     const nbr_child = document.getElementById('nbr_child').value;
     document.querySelector('#add_child').innerHTML = ``;
@@ -170,8 +172,8 @@ document.addEventListener("change", function (e) {
             document.querySelector(`#select-offer${i}`).innerHTML = ``
             document.querySelector(`#select-offer${i}`).innerHTML += `
         
-        <option value="12">no supplement child bed 0 DH</option> 
-        <option value="13">child bed supplement 25% single room</option>`
+        <option value="12">no extra bed</option> 
+        <option value="13">extra bed 25% single room</option>`
 
 
         } else if (e.target.id == `child-age-${i}` && e.target.value == "2.14") {
@@ -186,7 +188,7 @@ document.addEventListener("change", function (e) {
         `
         }
     }
-})
+});
 
 var price_view = 1;
 
@@ -198,10 +200,10 @@ function total() {
     var date1 = new Date(d_in);
     var date2 = new Date(d_out);
 
-    var oneDay = 24 * 60 * 60 * 1000; 
+    var oneDay = 24 * 60 * 60 * 1000;
     var diffDays = Math.abs((date1.getTime() - date2.getTime()) / (oneDay));
 
-    
+
     console.log(diffDays);
     console.log(price_chamber);
     tarifs = (price_chamber * diffDays);
